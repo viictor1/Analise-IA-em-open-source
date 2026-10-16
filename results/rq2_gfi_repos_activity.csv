@@ -1,0 +1,3 @@
+group,n_repos,median_prs,median_merged_prs,mwu_p_prs
+uses_gfi,103,10566.0,8488.0,1.761128480298838e-08
+no_gfi,133,3011.0,1744.0,1.761128480298838e-08

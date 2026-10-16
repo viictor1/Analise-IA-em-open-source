@@ -1,0 +1,2 @@
+metric,group_1,group_2,test,n1,n2,median_1,median_2,paired_median_diff,repos_1_greater,repos_1_less,repos_tied,mwu_p,significant,effect_measure,effect,magnitude,mwu_p_fdr
+resolution_time_median_per_repo[window1],Newcomer,Veteran,paired_wilcoxon,191,191,2.420335648148148,0.6521643518518518,1.3659317129629627,179,12,0,6.919057535105227e-31,True,paired_rank_biserial,0.9642233856893543,large,6.919057535105227e-31

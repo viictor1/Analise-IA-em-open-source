@@ -1,0 +1,6 @@
+group,N,N_with_email,n_95_5
+Newcomers (all),43782,11798,245
+Newcomers with AI in the debut,4078,1085,232
+Newcomers without any AI PR,38552,10399,245
+Newcomers excluded (AI only after the debut),1152,314,203
+Maintainers (reviewed an AI PR),3428,1228,230

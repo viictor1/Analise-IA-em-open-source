@@ -1,0 +1,11 @@
+metric,group_1,group_2,test,n1,n2,median_1,median_2,paired_median_diff,repos_1_greater,repos_1_less,repos_tied,mwu_p,significant,effect_measure,effect,magnitude,mwu_p_fdr
+resolution_time_days[window2],AI_Agent,Newcomer_AI,mann_whitney,5457,7506,0.7967013888888889,2.1174537037037036,,,,,7.118916163452904e-87,True,cliffs_delta,-0.20292116438179242,small,1.0169880233504148e-86
+resolution_time_days[window2],AI_Agent,Newcomer,mann_whitney,5457,54121,0.7967013888888889,1.8039351851851853,,,,,3.5168935886461554e-87,True,cliffs_delta,-0.16229570796231685,small,5.861489314410259e-87
+resolution_time_days[window2],AI_Agent,Veteran_AI,mann_whitney,5457,23529,0.7967013888888889,0.7622337962962963,,,,,4.789409102308031e-06,True,cliffs_delta,0.03967712737153595,negligible,4.789409102308031e-06
+resolution_time_days[window2],AI_Agent,Veteran,mann_whitney,5457,226351,0.7967013888888889,0.503900462962963,,,,,1.893819483179687e-60,True,cliffs_delta,0.12971669475015335,negligible,2.3672743539746088e-60
+resolution_time_days[window2],Newcomer_AI,Newcomer,mann_whitney,7506,54121,2.1174537037037036,1.8039351851851853,,,,,1.2326328126658103e-08,True,cliffs_delta,0.04049919958836545,negligible,1.3695920140731227e-08
+resolution_time_days[window2],Newcomer_AI,Veteran_AI,mann_whitney,7506,23529,2.1174537037037036,0.7622337962962963,,,,,4.7431328466490484e-188,True,cliffs_delta,0.2238537275921113,small,1.185783211662262e-187
+resolution_time_days[window2],Newcomer_AI,Veteran,mann_whitney,7506,226351,2.1174537037037036,0.503900462962963,,,,,0.0,True,cliffs_delta,0.3060255095960196,small,0.0
+resolution_time_days[window2],Newcomer,Veteran_AI,mann_whitney,54121,23529,1.8039351851851853,0.7622337962962963,,,,,0.0,True,cliffs_delta,0.18572690582588502,small,0.0
+resolution_time_days[window2],Newcomer,Veteran,mann_whitney,54121,226351,1.8039351851851853,0.503900462962963,,,,,0.0,True,cliffs_delta,0.2693654086660513,small,0.0
+resolution_time_days[window2],Veteran_AI,Veteran,mann_whitney,23529,226351,0.7622337962962963,0.503900462962963,,,,,3.3124425489790467e-105,True,cliffs_delta,0.08614788289665265,negligible,6.624885097958093e-105

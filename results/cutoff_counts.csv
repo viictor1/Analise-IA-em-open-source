@@ -1,0 +1,9 @@
+group,collected,until_2026_07,with_ai_by_signal
+total,2628498,2486663,
+with_ai,86024,61681,61575.0
+ai_agent,19958,14010,14010.0
+human_ai,66066,47671,47565.0
+control,1963083,1883561,
+control_deleted_account,8902,8851,
+automation,570489,532570,
+automation_13_accounts,317437,293911,

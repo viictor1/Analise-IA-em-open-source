@@ -1,0 +1,5 @@
+metric,group_1,group_2,test,n1,n2,median_1,median_2,paired_median_diff,repos_1_greater,repos_1_less,repos_tied,mwu_p,significant,effect_measure,effect,magnitude,mwu_p_fdr
+gfi_rate_per_repo[between_windows],Newcomer[after],Newcomer[before],paired_wilcoxon,102,102,0.013513513513513514,0.01895673587743984,-0.0003851091142490371,44,51,7,0.33823437101912057,False,paired_rank_biserial,,,0.33823437101912057
+gfi_rate_per_repo[between_windows],Newcomer_AI[after],Newcomer[before],paired_wilcoxon,60,60,0.0,0.016709322165348223,-0.006354568854568855,17,37,6,0.22637820224585303,False,paired_rank_biserial,,,0.3018376029944707
+gfi_rate_per_repo[between_windows],Veteran[after],Veteran[before],paired_wilcoxon,102,102,0.0003433864898721451,0.0008162477092472835,-0.00019700141478796264,23,56,23,0.019236813615322368,True,paired_rank_biserial,-0.3031645569620253,small,0.038473627230644736
+gfi_rate_per_repo[between_windows],Veteran_AI[after],Veteran[before],paired_wilcoxon,73,73,0.0,0.0012755102040816326,-0.0003889915394340173,7,43,23,8.389784493551585e-06,True,paired_rank_biserial,-0.7239215686274509,large,3.355913797420634e-05

@@ -1,0 +1,6 @@
+crosstab,in_breakdown,outside_breakdown,pct_breakdown,pct_outside,p_fisher
+Maintainers who answer No and explain: explanation with a concern,5/10,,50.0,,
+Newcomers who want to learn: AI undermines belonging,3/3,7/19,100.0,36.8,0.078
+Newcomers who value support from others: AI undermines belonging,3/6,7/16,50.0,43.8,1.0
+Newcomers who fix their own problem and used AI: willingness increased,6/7,6/11,85.7,54.5,0.316
+Maintainers x newcomers: AI undermines belonging,8/27,10/22,29.6,45.5,0.372

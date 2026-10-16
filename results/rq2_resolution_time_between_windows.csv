@@ -1,0 +1,5 @@
+metric,group_1,group_2,test,n1,n2,median_1,median_2,paired_median_diff,repos_1_greater,repos_1_less,repos_tied,mwu_p,significant,effect_measure,effect,magnitude,mwu_p_fdr
+resolution_time_days[between_windows],Newcomer[after],Newcomer[before],mann_whitney,54121,46384,1.8039351851851853,1.5128356481481482,,,,,6.242783852671126e-15,True,cliffs_delta,0.02849076533623429,negligible,6.242783852671126e-15
+resolution_time_days[between_windows],Newcomer_AI[after],Newcomer[before],mann_whitney,7506,46384,2.1174537037037036,1.5128356481481482,,,,,3.753426850699823e-21,True,cliffs_delta,0.06780287222446946,negligible,7.506853701399645e-21
+resolution_time_days[between_windows],Veteran[after],Veteran[before],mann_whitney,226351,217854,0.503900462962963,0.45035879629629627,,,,,1.4021573466052075e-16,True,cliffs_delta,0.014321124724163914,negligible,1.8695431288069434e-16
+resolution_time_days[between_windows],Veteran_AI[after],Veteran[before],mann_whitney,23529,217854,0.7622337962962963,0.45035879629629627,,,,,1.293159409572502e-139,True,cliffs_delta,0.09965703015297556,negligible,5.172637638290008e-139

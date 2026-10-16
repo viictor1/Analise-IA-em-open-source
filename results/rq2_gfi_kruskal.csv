@@ -1,0 +1,3 @@
+metric,groups,n_total,H,p
+gfi_rate_per_repo,"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",366,103.38313171227331,1.8723166208015093e-21
+gfi_rate_per_repo[until 2026-05],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",339,89.91466565482412,1.3728821172429683e-18

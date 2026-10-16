@@ -1,0 +1,80 @@
+\begin{table}[t]
+\centering
+\caption{Descriptive statistics of the 450 sampled repositories. Counts cover each repository's whole history, and days since last push were measured when the metrics were collected. The PR merge rate is the share of merged pull requests among all pull requests.}
+\label{tab:sample-overall}
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Metric} & \textbf{Min} & \textbf{Median} & \textbf{Max} \\
+\midrule
+Stars & 1\,474 & 37\,018 & 250\,594 \\
+Forks & 106 & 4\,168 & 76\,927 \\
+Pull requests (all) & 67 & 2\,428 & 305\,780 \\
+Merged pull requests & 0 & 1\,552 & 190\,070 \\
+PR merge rate (\%) & 0.00 & 74.39 & 95.93 \\
+Issues (all) & 0 & 3\,296 & 253\,916 \\
+Commits (default branch) & 23 & 6\,408 & 890\,475 \\
+Repository age (years) & 4.8 & 10.9 & 18.5 \\
+Days since last push & 0 & 1 & 299 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table*}[t]
+\centering
+\caption{Sample composition by main programming language: number of repositories (N) and minimum, median and maximum of stars and pull requests.}
+\label{tab:sample-by-language}
+\small
+\begin{tabular}{lrrrrrrr}
+\toprule
+ & & \multicolumn{3}{c}{\textbf{Stars}} & \multicolumn{3}{c}{\textbf{Pull requests}} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}
+\textbf{Language} & \textbf{N} & Min & Median & Max & Min & Median & Max \\
+\midrule
+C & 30 & 24\,437 & 32\,812 & 150\,022 & 76 & 3\,053 & 29\,797 \\
+C\# & 30 & 15\,594 & 21\,549 & 116\,531 & 94 & 2\,590 & 56\,770 \\
+C++ & 30 & 33\,639 & 45\,776 & 200\,194 & 143 & 4\,496 & 88\,403 \\
+Dart & 30 & 3\,331 & 7\,289 & 179\,012 & 123 & 524 & 75\,752 \\
+Go & 30 & 44\,616 & 64\,041 & 138\,895 & 325 & 4\,130 & 91\,783 \\
+Java & 30 & 29\,809 & 39\,538 & 84\,798 & 166 & 1\,904 & 111\,675 \\
+JavaScript & 30 & 44\,807 & 66\,821 & 250\,594 & 90 & 3\,144 & 42\,647 \\
+Kotlin & 30 & 8\,349 & 11\,874 & 62\,853 & 67 & 1\,442 & 12\,527 \\
+Objective-C & 30 & 1\,474 & 5\,324 & 25\,629 & 86 & 638 & 13\,987 \\
+PHP & 30 & 14\,290 & 21\,646 & 62\,031 & 468 & 2\,751 & 41\,008 \\
+Python & 30 & 48\,677 & 69\,022 & 192\,160 & 155 & 5\,107 & 268\,352 \\
+Ruby & 30 & 11\,508 & 15\,930 & 58\,779 & 350 & 4\,317 & 305\,780 \\
+Rust & 30 & 35\,898 & 56\,484 & 124\,011 & 418 & 4\,212 & 98\,482 \\
+Swift & 30 & 8\,982 & 18\,184 & 70\,350 & 126 & 854 & 70\,280 \\
+TypeScript & 30 & 56\,440 & 76\,752 & 205\,385 & 955 & 7\,810 & 84\,265 \\
+\midrule
+All & 450 & 1\,474 & 37\,018 & 250\,594 & 67 & 2\,428 & 305\,780 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\caption{Median activity profile per language and the five most-starred repositories of each.}
+\label{tab:sample-profile}
+\small
+\begin{tabular}{lrrrrp{6.5cm}}
+\toprule
+\textbf{Language} & \textbf{Commits} & \textbf{Forks} & \textbf{Age (yr)} & \textbf{Merge rate (\%)} & \textbf{Top-5 repositories} \\
+\midrule
+C & 11\,458 & 4\,652 & 11.5 & 54.2 & \texttt{scrcpy}, \texttt{PowerToys}, \texttt{Ventoy}, \texttt{redis}, \texttt{obs-studio} \\
+C\# & 7\,998 & 2\,832 & 9.8 & 81.0 & \texttt{v2rayN}, \texttt{jellyfin}, \texttt{PowerShell}, \texttt{Files}, \texttt{aspnetcore} \\
+C++ & 8\,432 & 7\,862 & 11.6 & 69.9 & \texttt{tensorflow}, \texttt{react-native}, \texttt{electron}, \texttt{godot}, \texttt{terminal} \\
+Dart & 2\,140 & 800 & 7.2 & 80.1 & \texttt{flutter}, \texttt{AppFlowy}, \texttt{spotube}, \texttt{gopeed}, \texttt{lantern} \\
+Go & 8\,236 & 6\,893 & 12.2 & 72.2 & \texttt{go}, \texttt{kubernetes}, \texttt{TypeScript}, \texttt{frp}, \texttt{hugo} \\
+Java & 6\,322 & 9\,244 & 11.7 & 64.0 & \texttt{mall}, \texttt{spring-boot}, \texttt{elasticsearch}, \texttt{ghidra}, \texttt{termux-app} \\
+JavaScript & 7\,100 & 8\,994 & 12.1 & 65.7 & \texttt{react}, \texttt{next.js}, \texttt{node}, \texttt{three.js}, \texttt{axios} \\
+Kotlin & 3\,360 & 1\,595 & 11.3 & 80.1 & \texttt{Magisk}, \texttt{v2rayNG}, \texttt{kotlin}, \texttt{okhttp}, \texttt{shadowsocks-android} \\
+Objective-C & 2\,402 & 866 & 12.7 & 75.6 & \texttt{SDWebImage}, \texttt{iTerm2}, \texttt{realm-swift}, \texttt{hammerspoon}, \texttt{FLEX} \\
+PHP & 7\,488 & 2\,340 & 12.9 & 71.6 & \texttt{coolify}, \texttt{appwrite}, \texttt{server}, \texttt{framework}, \texttt{filament} \\
+Python & 12\,122 & 13\,579 & 10.0 & 64.0 & \texttt{yt-dlp}, \texttt{transformers}, \texttt{youtube-dl}, \texttt{pytorch}, \texttt{fastapi} \\
+Ruby & 11\,164 & 4\,242 & 15.3 & 72.8 & \texttt{rails}, \texttt{jekyll}, \texttt{mastodon}, \texttt{huginn}, \texttt{brew} \\
+Rust & 5\,552 & 2\,990 & 7.3 & 78.6 & \texttt{rustdesk}, \texttt{rust}, \texttt{tauri}, \texttt{deno}, \texttt{bun} \\
+Swift & 2\,596 & 1\,615 & 10.9 & 77.8 & \texttt{swift}, \texttt{iina}, \texttt{Alamofire}, \texttt{stats}, \texttt{UTM} \\
+TypeScript & 15\,358 & 9\,425 & 9.5 & 77.3 & \texttt{n8n}, \texttt{vscode}, \texttt{excalidraw}, \texttt{supabase}, \texttt{angular} \\
+\bottomrule
+\end{tabular}
+\end{table*}

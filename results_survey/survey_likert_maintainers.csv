@@ -1,0 +1,10 @@
+item,n,n1,n2,n3,n4,n5,median,pct_disagree_1_2,pct_neutral_3,pct_agree_4_5
+L_quality,27,0,10,14,3,0,3.0,37.0,51.9,11.1
+L_less_effort,27,11,11,3,2,0,2.0,81.5,11.1,7.4
+L_more_attention,27,1,0,8,14,4,4.0,3.7,29.6,66.7
+L_more_prs,27,1,1,1,6,18,5.0,7.4,3.7,88.9
+L_less_communication,27,10,6,9,1,1,2.0,59.3,33.3,7.4
+L_lacks_context,27,1,2,6,8,10,4.0,11.1,22.2,66.7
+L_more_satisfying,27,21,3,2,1,0,1.0,88.9,7.4,3.7
+L_trusts_less,27,6,7,6,7,1,3.0,48.1,22.2,29.6
+L_more_workload,27,1,1,2,10,13,4.0,7.4,7.4,85.2
