@@ -1,0 +1,11 @@
+metric,group_1,group_2,test,n1,n2,median_1,median_2,paired_median_diff,repos_1_greater,repos_1_less,repos_tied,mwu_p,significant,effect_measure,effect,magnitude,mwu_p_fdr
+gfi_rate_per_repo,AI_Agent,Newcomer_AI,paired_wilcoxon,25,25,0.0,0.0,0.0,2,9,14,0.032854219928643694,True,paired_rank_biserial,-0.7272727272727273,large,0.04693459989806242
+gfi_rate_per_repo,AI_Agent,Newcomer,paired_wilcoxon,28,28,0.0,0.009385703046358863,-0.007318143857470181,3,18,7,0.005723186500070235,True,paired_rank_biserial,-0.6883116883116883,large,0.009538644166783725
+gfi_rate_per_repo,AI_Agent,Veteran_AI,paired_wilcoxon,27,27,0.0,0.0,0.0,5,4,18,0.6784023758521882,False,paired_rank_biserial,,,0.7537804176135424
+gfi_rate_per_repo,AI_Agent,Veteran,paired_wilcoxon,28,28,0.0,0.0002507153256769595,0.0,5,11,12,0.7959872153886274,False,paired_rank_biserial,,,0.7959872153886274
+gfi_rate_per_repo,Newcomer_AI,Newcomer,paired_wilcoxon,60,60,0.0,0.01190644932671864,-0.0038626927639383154,17,33,10,0.4900574417987802,False,paired_rank_biserial,,,0.6125718022484752
+gfi_rate_per_repo,Newcomer_AI,Veteran_AI,paired_wilcoxon,52,52,0.0,0.0,0.0,21,1,30,6.0505893739041966e-05,True,paired_rank_biserial,0.9762845849802372,large,0.00020168631246347322
+gfi_rate_per_repo,Newcomer_AI,Veteran,paired_wilcoxon,60,60,0.0,0.0002507153256769595,0.0,24,13,23,0.00017758214231670635,True,paired_rank_biserial,0.7069701280227596,large,0.00044395535579176584
+gfi_rate_per_repo,Newcomer,Veteran_AI,paired_wilcoxon,73,73,0.010914051841746248,0.0,0.00975609756097561,54,2,17,1.0502815232741725e-09,True,paired_rank_biserial,0.9373433583959899,large,5.2514076163708624e-09
+gfi_rate_per_repo,Newcomer,Veteran,paired_wilcoxon,102,102,0.013513513513513514,0.0003433864898721451,0.012048192771084338,79,9,14,1.8309440493320382e-13,True,paired_rank_biserial,0.9034729315628192,large,1.830944049332038e-12
+gfi_rate_per_repo,Veteran_AI,Veteran,paired_wilcoxon,73,73,0.0,0.00016920473773265651,0.0,5,35,33,0.00040768073735664563,True,paired_rank_biserial,-0.6414634146341464,large,0.0008153614747132913

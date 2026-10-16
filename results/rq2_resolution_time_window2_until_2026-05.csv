@@ -1,0 +1,11 @@
+metric,group_1,group_2,test,n1,n2,median_1,median_2,paired_median_diff,repos_1_greater,repos_1_less,repos_tied,mwu_p,significant,effect_measure,effect,magnitude,mwu_p_fdr
+resolution_time_days[window2|until 2026-05],AI_Agent,Newcomer_AI,mann_whitney,4034,4004,0.894542824074074,2.499415509259259,,,,,1.184095480337559e-51,True,cliffs_delta,-0.19475801838221274,small,1.6915649719107984e-51
+resolution_time_days[window2|until 2026-05],AI_Agent,Newcomer,mann_whitney,4034,41246,0.894542824074074,1.8657696759259261,,,,,5.551057954687968e-51,True,cliffs_delta,-0.14304295392860444,negligible,6.93882244335996e-51
+resolution_time_days[window2|until 2026-05],AI_Agent,Veteran_AI,mann_whitney,4034,14768,0.894542824074074,0.8334548611111111,,,,,0.0073258286493731685,True,cliffs_delta,0.027506024764582415,negligible,0.0073258286493731685
+resolution_time_days[window2|until 2026-05],AI_Agent,Veteran,mann_whitney,4034,191211,0.894542824074074,0.49159722222222224,,,,,2.9921644931713024e-63,True,cliffs_delta,0.15420647073368476,small,4.986940821952171e-63
+resolution_time_days[window2|until 2026-05],Newcomer_AI,Newcomer,mann_whitney,4004,41246,2.499415509259259,1.8657696759259261,,,,,1.242854969746912e-09,True,cliffs_delta,0.05805428993738171,negligible,1.3809499663854579e-09
+resolution_time_days[window2|until 2026-05],Newcomer_AI,Veteran_AI,mann_whitney,4004,14768,2.499415509259259,0.8334548611111111,,,,,3.239932399185734e-91,True,cliffs_delta,0.2083630244349366,small,6.479864798371468e-91
+resolution_time_days[window2|until 2026-05],Newcomer_AI,Veteran,mann_whitney,4004,191211,2.499415509259259,0.49159722222222224,,,,,5.87562785352406e-266,True,cliffs_delta,0.32120424669493497,small,2.93781392676203e-265
+resolution_time_days[window2|until 2026-05],Newcomer,Veteran_AI,mann_whitney,41246,14768,1.8657696759259261,0.8334548611111111,,,,,1.1688667497219355e-180,True,cliffs_delta,0.15868331813416203,small,3.896222499073119e-180
+resolution_time_days[window2|until 2026-05],Newcomer,Veteran,mann_whitney,41246,191211,1.8657696759259261,0.49159722222222224,,,,,0.0,True,cliffs_delta,0.2765223371928447,small,0.0
+resolution_time_days[window2|until 2026-05],Veteran_AI,Veteran,mann_whitney,14768,191211,0.8334548611111111,0.49159722222222224,,,,,1.846067857773181e-136,True,cliffs_delta,0.12260198835156566,negligible,4.615169644432952e-136

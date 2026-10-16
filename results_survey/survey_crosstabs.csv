@@ -1,0 +1,93 @@
+audience,row,column,row_value,column_value,n,row_total
+newcomers,motivation,undermines_belonging,Fix a problem I face as a user,No,6,8
+newcomers,motivation,undermines_belonging,Fix a problem I face as a user,Yes,2,8
+newcomers,motivation,undermines_belonging,Fun / hobby,No,1,2
+newcomers,motivation,undermines_belonging,Fun / hobby,Yes,1,2
+newcomers,motivation,undermines_belonging,Give back (I use the software),No,0,3
+newcomers,motivation,undermines_belonging,Give back (I use the software),Yes,3,3
+newcomers,motivation,undermines_belonging,Learn,No,0,3
+newcomers,motivation,undermines_belonging,Learn,Yes,3,3
+newcomers,motivation,undermines_belonging,Open source philosophy,No,4,4
+newcomers,motivation,undermines_belonging,Open source philosophy,Yes,0,4
+newcomers,motivation,undermines_belonging,Portfolio / CV,No,1,1
+newcomers,motivation,undermines_belonging,Portfolio / CV,Yes,0,1
+newcomers,motivation,undermines_belonging,Support others / share knowledge,No,0,1
+newcomers,motivation,undermines_belonging,Support others / share knowledge,Yes,1,1
+newcomers,belonging_factor,undermines_belonging,Feeling like a member,No,1,3
+newcomers,belonging_factor,undermines_belonging,Feeling like a member,Yes,2,3
+newcomers,belonging_factor,undermines_belonging,Project as home,No,1,1
+newcomers,belonging_factor,undermines_belonging,Project as home,Yes,0,1
+newcomers,belonging_factor,undermines_belonging,Recognition,No,7,12
+newcomers,belonging_factor,undermines_belonging,Recognition,Yes,5,12
+newcomers,belonging_factor,undermines_belonging,Support from others,No,3,6
+newcomers,belonging_factor,undermines_belonging,Support from others,Yes,3,6
+maintainers,belonging_factor,undermines_belonging,Feeling like a member,No,6,7
+maintainers,belonging_factor,undermines_belonging,Feeling like a member,Yes,1,7
+maintainers,belonging_factor,undermines_belonging,Knowing who to ask / being known,No,3,4
+maintainers,belonging_factor,undermines_belonging,Knowing who to ask / being known,Yes,1,4
+maintainers,belonging_factor,undermines_belonging,Project as home,No,2,3
+maintainers,belonging_factor,undermines_belonging,Project as home,Yes,1,3
+maintainers,belonging_factor,undermines_belonging,Recognition,No,7,11
+maintainers,belonging_factor,undermines_belonging,Recognition,Yes,4,11
+maintainers,belonging_factor,undermines_belonging,Support from others,No,1,2
+maintainers,belonging_factor,undermines_belonging,Support from others,Yes,1,2
+newcomers,used_ai,undermines_belonging,No,No,1,4
+newcomers,used_ai,undermines_belonging,No,Yes,3,4
+newcomers,used_ai,undermines_belonging,Yes,No,11,18
+newcomers,used_ai,undermines_belonging,Yes,Yes,7,18
+newcomers,group,undermines_belonging,Newcomer_AI,No,10,16
+newcomers,group,undermines_belonging,Newcomer_AI,Yes,6,16
+newcomers,group,undermines_belonging,Newcomer_no_AI,No,2,6
+newcomers,group,undermines_belonging,Newcomer_no_AI,Yes,4,6
+newcomers,aspect,undermines_belonging,Communication and collaboration,No,0,1
+newcomers,aspect,undermines_belonging,Communication and collaboration,Yes,1,1
+newcomers,aspect,undermines_belonging,Efficiency and flow,No,11,15
+newcomers,aspect,undermines_belonging,Efficiency and flow,Yes,4,15
+newcomers,aspect,undermines_belonging,No noticeable change,No,1,3
+newcomers,aspect,undermines_belonging,No noticeable change,Yes,2,3
+newcomers,aspect,undermines_belonging,Satisfaction and well-being,No,0,3
+newcomers,aspect,undermines_belonging,Satisfaction and well-being,Yes,3,3
+maintainers,aspect,undermines_belonging,Communication and collaboration,No,6,10
+maintainers,aspect,undermines_belonging,Communication and collaboration,Yes,4,10
+maintainers,aspect,undermines_belonging,Efficiency and flow,No,9,12
+maintainers,aspect,undermines_belonging,Efficiency and flow,Yes,3,12
+maintainers,aspect,undermines_belonging,No noticeable change,No,1,1
+maintainers,aspect,undermines_belonging,No noticeable change,Yes,0,1
+maintainers,aspect,undermines_belonging,Satisfaction and well-being,No,3,4
+maintainers,aspect,undermines_belonging,Satisfaction and well-being,Yes,1,4
+newcomers_who_used_ai,motivation,willingness_code,Fix a problem I face as a user,ambiguous,0,7
+newcomers_who_used_ai,motivation,willingness_code,Fix a problem I face as a user,increased,6,7
+newcomers_who_used_ai,motivation,willingness_code,Fix a problem I face as a user,no_effect,1,7
+newcomers_who_used_ai,motivation,willingness_code,Fun / hobby,ambiguous,0,2
+newcomers_who_used_ai,motivation,willingness_code,Fun / hobby,increased,1,2
+newcomers_who_used_ai,motivation,willingness_code,Fun / hobby,no_effect,1,2
+newcomers_who_used_ai,motivation,willingness_code,Give back (I use the software),ambiguous,0,2
+newcomers_who_used_ai,motivation,willingness_code,Give back (I use the software),increased,0,2
+newcomers_who_used_ai,motivation,willingness_code,Give back (I use the software),no_effect,2,2
+newcomers_who_used_ai,motivation,willingness_code,Learn,ambiguous,0,2
+newcomers_who_used_ai,motivation,willingness_code,Learn,increased,2,2
+newcomers_who_used_ai,motivation,willingness_code,Learn,no_effect,0,2
+newcomers_who_used_ai,motivation,willingness_code,Open source philosophy,ambiguous,1,4
+newcomers_who_used_ai,motivation,willingness_code,Open source philosophy,increased,3,4
+newcomers_who_used_ai,motivation,willingness_code,Open source philosophy,no_effect,0,4
+newcomers_who_used_ai,motivation,willingness_code,Portfolio / CV,ambiguous,0,1
+newcomers_who_used_ai,motivation,willingness_code,Portfolio / CV,increased,0,1
+newcomers_who_used_ai,motivation,willingness_code,Portfolio / CV,no_effect,1,1
+newcomers_who_used_ai,belonging_factor,willingness_code,Feeling like a member,ambiguous,0,3
+newcomers_who_used_ai,belonging_factor,willingness_code,Feeling like a member,increased,2,3
+newcomers_who_used_ai,belonging_factor,willingness_code,Feeling like a member,no_effect,1,3
+newcomers_who_used_ai,belonging_factor,willingness_code,Project as home,ambiguous,0,1
+newcomers_who_used_ai,belonging_factor,willingness_code,Project as home,increased,1,1
+newcomers_who_used_ai,belonging_factor,willingness_code,Project as home,no_effect,0,1
+newcomers_who_used_ai,belonging_factor,willingness_code,Recognition,ambiguous,1,9
+newcomers_who_used_ai,belonging_factor,willingness_code,Recognition,increased,5,9
+newcomers_who_used_ai,belonging_factor,willingness_code,Recognition,no_effect,3,9
+newcomers_who_used_ai,belonging_factor,willingness_code,Support from others,ambiguous,0,5
+newcomers_who_used_ai,belonging_factor,willingness_code,Support from others,increased,4,5
+newcomers_who_used_ai,belonging_factor,willingness_code,Support from others,no_effect,1,5
+newcomers_who_used_ai,willingness_code,undermines_belonging,ambiguous,No,1,1
+newcomers_who_used_ai,willingness_code,undermines_belonging,ambiguous,Yes,0,1
+newcomers_who_used_ai,willingness_code,undermines_belonging,increased,No,7,12
+newcomers_who_used_ai,willingness_code,undermines_belonging,increased,Yes,5,12
+newcomers_who_used_ai,willingness_code,undermines_belonging,no_effect,No,3,5
+newcomers_who_used_ai,willingness_code,undermines_belonging,no_effect,Yes,2,5

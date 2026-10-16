@@ -1,0 +1,2 @@
+breakdown,repositories,testable,increasing,decreasing,no_trend,constant,tau_positive,tau_negative,tau_median,wilcoxon_W,wilcoxon_p
+no_ai:2025-08..2026-07,42,42,0,0,42,0,21,18,0.02752409412815901,359.0,0.6652903250223026

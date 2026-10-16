@@ -1,0 +1,7 @@
+metric,group_1,group_2,test,n1,n2,median_1,median_2,paired_median_diff,repos_1_greater,repos_1_less,repos_tied,mwu_p,significant,effect_measure,effect,magnitude,mwu_p_fdr,threshold,repositories
+mean_newcomers,after,before,paired_wilcoxon,236,236,12.333333333333332,7.15,3.8375000000000004,200,34,2,2.580506645401402e-30,True,paired_rank_biserial,0.8627750500090926,large,7.741519936204205e-30,main,236
+tau_newcomers,after,before,paired_wilcoxon,235,235,0.3318060248025013,0.038924947208076155,0.1990930332779258,153,80,2,3.033688258629713e-07,True,paired_rank_biserial,0.3869997432229192,medium,3.033688258629713e-07,main,236
+log2_growth_newcomers_vs_veterans,newcomers,veterans,paired_wilcoxon,223,223,0.5639008851933265,0.057041195854670046,0.4874253687163633,169,54,0,7.978036221693034e-16,True,paired_rank_biserial,0.6221172325432415,large,1.1967054332539551e-15,main,236
+mean_newcomers,after,before,paired_wilcoxon,152,152,13.406593406593407,8.0,3.5634920634920637,119,32,1,1.126002163319985e-17,True,paired_rank_biserial,0.8030672708260718,large,3.378006489959955e-17,insiders,152
+tau_newcomers,after,before,paired_wilcoxon,151,151,0.2830692585361489,0.02884748743316578,0.16826985125516514,96,54,1,3.648741586564649e-05,True,paired_rank_biserial,0.3886092715231788,medium,3.648741586564649e-05,insiders,152
+log2_growth_newcomers_vs_veterans,newcomers,veterans,paired_wilcoxon,146,146,0.5178453389921951,0.11237019623645597,0.35864317923779665,102,43,1,6.594528472515568e-07,True,paired_rank_biserial,0.47605101558809637,large,9.89179270877335e-07,insiders,152

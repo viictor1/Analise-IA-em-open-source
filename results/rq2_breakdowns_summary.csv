@@ -1,0 +1,13 @@
+comparison,breakdown,categories,difference_negative,significant_negative,difference_positive,significant_positive
+acceptance_newcomer_after_vs_before,language,11,11,5,0,0
+acceptance_newcomer_after_vs_before,size,4,4,3,0,0
+acceptance_newcomer_after_vs_before,stars,4,4,3,0,0
+acceptance_prior_after_vs_before,language,11,5,0,6,0
+acceptance_prior_after_vs_before,size,4,3,0,1,0
+acceptance_prior_after_vs_before,stars,4,3,1,1,1
+acceptance_newcomer_ai_vs_no_ai,language,9,9,5,0,0
+acceptance_newcomer_ai_vs_no_ai,size,4,4,4,0,0
+acceptance_newcomer_ai_vs_no_ai,stars,4,4,4,0,0
+time_newcomer_ai_vs_no_ai,language,3,0,0,3,1
+time_newcomer_ai_vs_no_ai,size,4,0,0,4,2
+time_newcomer_ai_vs_no_ai,stars,4,0,0,4,2

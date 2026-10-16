@@ -1,0 +1,2 @@
+metric,group_1,group_2,test,n1,n2,median_1,median_2,paired_median_diff,repos_1_greater,repos_1_less,repos_tied,mwu_p,significant,effect_measure,effect,magnitude,mwu_p_fdr
+resolution_time_days[window1],Newcomer,Veteran,mann_whitney,46384,217854,1.5128356481481482,0.45035879629629627,,,,,0.0,True,cliffs_delta,0.24833909759916462,small,0.0

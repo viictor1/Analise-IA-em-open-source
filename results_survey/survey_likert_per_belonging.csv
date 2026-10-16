@@ -1,0 +1,10 @@
+item,n_yes,n_no,median_yes,median_no,pct_agree_yes,pct_agree_no,cliffs_delta,p
+L_quality,8,19,3.0,3.0,0.0,15.8,-0.105,0.658
+L_less_effort,8,19,1.5,2.0,0.0,10.5,-0.171,0.475
+L_more_attention,8,19,4.0,4.0,75.0,63.2,0.092,0.705
+L_more_prs,8,19,4.5,5.0,87.5,89.5,-0.204,0.339
+L_less_communication,8,19,2.0,2.0,0.0,10.5,-0.072,0.78
+L_lacks_context,8,19,4.5,4.0,100.0,52.6,0.421,0.08
+L_more_satisfying,8,19,1.0,1.0,0.0,5.3,-0.158,0.401
+L_trusts_less,8,19,3.5,2.0,50.0,21.1,0.401,0.101
+L_more_workload,8,19,4.5,4.0,100.0,78.9,0.132,0.582

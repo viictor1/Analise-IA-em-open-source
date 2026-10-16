@@ -1,0 +1,13 @@
+audience,theme,undermines_no,undermines_yes,total
+maintainers,interaction,3,2,5
+maintainers,human_loop,4,0,4
+maintainers,slop,0,4,4
+maintainers,tool,4,0,4
+newcomers,tool,6,0,6
+newcomers,barrier,3,2,5
+newcomers,human_loop,1,3,4
+newcomers,slop,3,1,4
+newcomers,interaction,0,3,3
+newcomers,learning,1,2,3
+newcomers,opens_community,1,1,2
+newcomers,insecurity,0,1,1

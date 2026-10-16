@@ -1,0 +1,79 @@
+metric,groups,n_total,H,p,breakdown,category,metric_base,p_fdr
+resolution_time_days[window2],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",316964.0,11085.514376310084,0.0,global,,resolution_time_days,0.0
+acceptance_rate_per_repo[window2],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",798.0,424.15804386964714,1.6741398760434592e-90,global,,acceptance_rate_per_repo,1.6741398760434592e-90
+resolution_time_median_per_repo[window2],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",688.0,152.85757429636487,4.96937693000874e-32,global,,resolution_time_median_per_repo,4.96937693000874e-32
+resolution_time_days[window2|no robobun],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",315002.0,11162.88152434081,0.0,no_robobun,,resolution_time_days,0.0
+acceptance_rate_per_repo[window2|no robobun],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",798.0,423.9861676621065,1.8236395068239889e-90,no_robobun,,acceptance_rate_per_repo,1.8236395068239889e-90
+resolution_time_median_per_repo[window2|no robobun],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",687.0,152.29169084228442,6.570403731442167e-32,no_robobun,,resolution_time_median_per_repo,6.570403731442167e-32
+resolution_time_days[window2|until 2026-05],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",255263.0,8993.641282232575,0.0,until_2026-05,,resolution_time_days,0.0
+acceptance_rate_per_repo[window2|until 2026-05],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",764.0,424.38002927416943,1.4990440244669386e-90,until_2026-05,,acceptance_rate_per_repo,1.4990440244669386e-90
+resolution_time_median_per_repo[window2|until 2026-05],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",634.0,130.1682243567791,3.5844809868512395e-27,until_2026-05,,resolution_time_median_per_repo,3.5844809868512395e-27
+resolution_time_days[window2|language=C],"Newcomer, Veteran",7218.0,228.3113096723258,1.3919497741286913e-51,language,C,resolution_time_days,1.3919497741286913e-51
+acceptance_rate_per_repo[window2|language=C],"Newcomer, Veteran",22.0,13.780204532607012,0.00020549006018845422,language,C,acceptance_rate_per_repo,0.00022603906620729966
+resolution_time_median_per_repo[window2|language=C],"Newcomer, Veteran",22.0,4.839022637441616,0.027822659464705975,language,C,resolution_time_median_per_repo,0.030604925411176574
+resolution_time_days[window2|language=C#],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",22295.0,462.6298836916132,8.077450734903418e-99,language,C#,resolution_time_days,9.872439787104179e-99
+acceptance_rate_per_repo[window2|language=C#],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",56.0,23.362438659674382,3.393365854674e-05,language,C#,acceptance_rate_per_repo,4.1474471557126676e-05
+resolution_time_median_per_repo[window2|language=C#],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",52.0,17.122359771194397,0.0006669477440478783,language,C#,resolution_time_median_per_repo,0.0018341062961316653
+resolution_time_days[window2|language=C++],"Newcomer_AI, Newcomer, Veteran",23800.0,678.6593613779249,4.275551389862549e-148,language,C++,resolution_time_days,5.878883161061005e-148
+acceptance_rate_per_repo[window2|language=C++],"Newcomer_AI, Newcomer, Veteran",39.0,25.6878121878122,2.6421803436800186e-06,language,C++,acceptance_rate_per_repo,4.1519976829257436e-06
+resolution_time_median_per_repo[window2|language=C++],"Newcomer, Veteran",28.0,7.349049964813503,0.006709820402233336,language,C++,resolution_time_median_per_repo,0.01230133740409445
+resolution_time_days[window2|language=Dart],,,,,language,Dart,resolution_time_days,
+acceptance_rate_per_repo[window2|language=Dart],,,,,language,Dart,acceptance_rate_per_repo,
+resolution_time_median_per_repo[window2|language=Dart],,,,,language,Dart,resolution_time_median_per_repo,
+resolution_time_days[window2|language=Go],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",17453.0,888.7795169618278,4.494902790397941e-191,language,Go,resolution_time_days,9.888786138875472e-191
+acceptance_rate_per_repo[window2|language=Go],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",79.0,40.05305652537632,1.0382704357170708e-08,language,Go,acceptance_rate_per_repo,2.284194958577556e-08
+resolution_time_median_per_repo[window2|language=Go],"Newcomer, Veteran_AI, Veteran",57.0,22.910182980963384,1.0595390705905526e-05,language,Go,resolution_time_median_per_repo,0.00011654929776496078
+resolution_time_days[window2|language=Java],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",27966.0,752.1557185238735,1.0283267930739307e-162,language,Java,resolution_time_days,1.885265787302206e-162
+acceptance_rate_per_repo[window2|language=Java],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",50.0,25.290825728466245,1.3422750954766917e-05,language,Java,acceptance_rate_per_repo,1.8456282562804512e-05
+resolution_time_median_per_repo[window2|language=Java],"Newcomer, Veteran_AI, Veteran",39.0,8.852397602397616,0.01195986520271932,language,Java,resolution_time_median_per_repo,0.018794073889987502
+resolution_time_days[window2|language=JavaScript],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",13954.0,258.312631893068,1.053391789358854e-54,language,JavaScript,resolution_time_days,1.1587309682947395e-54
+acceptance_rate_per_repo[window2|language=JavaScript],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",66.0,47.48061732906427,2.746547342550675e-10,language,JavaScript,acceptance_rate_per_repo,1.0070673589352475e-09
+resolution_time_median_per_repo[window2|language=JavaScript],"Newcomer, Veteran_AI, Veteran",48.0,7.354961215255315,0.02528660152227488,language,JavaScript,resolution_time_median_per_repo,0.030604925411176574
+resolution_time_days[window2|language=Kotlin],Newcomer,,,,language,Kotlin,resolution_time_days,
+acceptance_rate_per_repo[window2|language=Kotlin],Newcomer,,,,language,Kotlin,acceptance_rate_per_repo,
+resolution_time_median_per_repo[window2|language=Kotlin],Newcomer,,,,language,Kotlin,resolution_time_median_per_repo,
+resolution_time_days[window2|language=Objective-C],,,,,language,Objective-C,resolution_time_days,
+acceptance_rate_per_repo[window2|language=Objective-C],,,,,language,Objective-C,acceptance_rate_per_repo,
+resolution_time_median_per_repo[window2|language=Objective-C],,,,,language,Objective-C,resolution_time_median_per_repo,
+resolution_time_days[window2|language=PHP],"Newcomer, Veteran_AI, Veteran",10392.0,711.951963698545,2.5211308851431034e-155,language,PHP,resolution_time_days,3.961777105224877e-155
+acceptance_rate_per_repo[window2|language=PHP],"Newcomer, Veteran",23.0,10.640151515151516,0.001106586075163425,language,PHP,acceptance_rate_per_repo,0.001106586075163425
+resolution_time_median_per_repo[window2|language=PHP],"Newcomer, Veteran",21.0,9.16859504132232,0.002462035068598312,language,PHP,resolution_time_median_per_repo,0.005416477150916287
+resolution_time_days[window2|language=Python],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",40547.0,3133.692869632273,0.0,language,Python,resolution_time_days,0.0
+acceptance_rate_per_repo[window2|language=Python],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",67.0,47.85143483384197,2.2902749012465379e-10,language,Python,acceptance_rate_per_repo,1.0070673589352475e-09
+resolution_time_median_per_repo[window2|language=Python],"Newcomer, Veteran",35.0,15.167755991285418,9.836888717232816e-05,language,Python,resolution_time_median_per_repo,0.0003606859196318699
+resolution_time_days[window2|language=Ruby],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",33512.0,928.8723648892303,4.8340779396671196e-201,language,Ruby,resolution_time_days,1.3293714334084578e-200
+acceptance_rate_per_repo[window2|language=Ruby],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",50.0,35.50017276840802,9.550912572841988e-08,language,Ruby,acceptance_rate_per_repo,1.7510006383543645e-07
+resolution_time_median_per_repo[window2|language=Ruby],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",46.0,6.491858742552552,0.08998412858991839,language,Ruby,resolution_time_median_per_repo,0.08998412858991839
+resolution_time_days[window2|language=Rust],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",31970.0,1365.1053607537401,1.0989507826791505e-295,language,Rust,resolution_time_days,4.029486203156885e-295
+acceptance_rate_per_repo[window2|language=Rust],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",64.0,41.42364348184445,5.316953136445616e-09,language,Rust,acceptance_rate_per_repo,1.4621621125225445e-08
+resolution_time_median_per_repo[window2|language=Rust],"Newcomer, Veteran",36.0,5.481481481481481,0.019218963823798767,language,Rust,resolution_time_median_per_repo,0.026426075257723305
+resolution_time_days[window2|language=Swift],,,,,language,Swift,resolution_time_days,
+acceptance_rate_per_repo[window2|language=Swift],,,,,language,Swift,acceptance_rate_per_repo,
+resolution_time_median_per_repo[window2|language=Swift],,,,,language,Swift,resolution_time_median_per_repo,
+resolution_time_days[window2|language=TypeScript],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",68876.0,3507.3418730525073,0.0,language,TypeScript,resolution_time_days,0.0
+acceptance_rate_per_repo[window2|language=TypeScript],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",92.0,65.28287274428166,4.363650651690057e-14,language,TypeScript,acceptance_rate_per_repo,4.800015716859062e-13
+resolution_time_median_per_repo[window2|language=TypeScript],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",86.0,23.114063870937343,3.8231512608529626e-05,language,TypeScript,resolution_time_median_per_repo,0.00021027331934691295
+resolution_time_days[window2|stars=Q1],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",50740.0,1951.7291949666715,0.0,stars,Q1,resolution_time_days,0.0
+acceptance_rate_per_repo[window2|stars=Q1],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",164.0,62.5110008584946,1.7084996522407812e-13,stars,Q1,acceptance_rate_per_repo,1.7084996522407812e-13
+resolution_time_median_per_repo[window2|stars=Q1],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",148.0,23.720687126912992,2.856881918875171e-05,stars,Q1,resolution_time_median_per_repo,2.856881918875171e-05
+resolution_time_days[window2|stars=Q2],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",63173.0,3003.3811838054535,0.0,stars,Q2,resolution_time_days,0.0
+acceptance_rate_per_repo[window2|stars=Q2],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",177.0,95.9042814965688,1.1802352032819139e-20,stars,Q2,acceptance_rate_per_repo,1.5736469377092185e-20
+resolution_time_median_per_repo[window2|stars=Q2],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",162.0,41.01789474063037,6.482304749947682e-09,stars,Q2,resolution_time_median_per_repo,1.2964609499895364e-08
+resolution_time_days[window2|stars=Q3],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",50968.0,2101.5339061911177,0.0,stars,Q3,resolution_time_days,0.0
+acceptance_rate_per_repo[window2|stars=Q3],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",191.0,116.56807657426043,4.231287550665192e-25,stars,Q3,acceptance_rate_per_repo,8.462575101330384e-25
+resolution_time_median_per_repo[window2|stars=Q3],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",157.0,38.21860688353377,2.5407395230834958e-08,stars,Q3,resolution_time_median_per_repo,3.387652697444661e-08
+resolution_time_days[window2|stars=Q4],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",152083.0,5975.104481579721,0.0,stars,Q4,resolution_time_days,0.0
+acceptance_rate_per_repo[window2|stars=Q4],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",198.0,132.6318971823948,1.4650474798405238e-28,stars,Q4,acceptance_rate_per_repo,5.860189919362095e-28
+resolution_time_median_per_repo[window2|stars=Q4],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",172.0,47.26679267970826,3.0498422857093645e-10,stars,Q4,resolution_time_median_per_repo,1.2199369142837458e-09
+resolution_time_days[window2|size=Q1],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",7864.0,307.4495951663976,2.677494584662777e-65,size,Q1,resolution_time_days,2.677494584662777e-65
+acceptance_rate_per_repo[window2|size=Q1],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",134.0,55.380083189258535,5.696715350775332e-12,size,Q1,acceptance_rate_per_repo,5.696715350775332e-12
+resolution_time_median_per_repo[window2|size=Q1],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",111.0,23.015029775918208,4.0092763836602254e-05,size,Q1,resolution_time_median_per_repo,4.0092763836602254e-05
+resolution_time_days[window2|size=Q2],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",33849.0,3564.9079076164808,0.0,size,Q2,resolution_time_days,0.0
+acceptance_rate_per_repo[window2|size=Q2],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",189.0,113.84605866394048,1.6312001266791039e-24,size,Q2,acceptance_rate_per_repo,2.174933502238805e-24
+resolution_time_median_per_repo[window2|size=Q2],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",158.0,44.028927825593314,1.4879788727942322e-09,size,Q2,resolution_time_median_per_repo,2.9759577455884645e-09
+resolution_time_days[window2|size=Q3],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",62251.0,1963.9217759400942,0.0,size,Q3,resolution_time_days,0.0
+acceptance_rate_per_repo[window2|size=Q3],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",205.0,136.51111235707756,2.136288000035948e-29,size,Q3,acceptance_rate_per_repo,8.545152000143792e-29
+resolution_time_median_per_repo[window2|size=Q3],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",185.0,48.09813268365588,2.0295072539660886e-10,size,Q3,resolution_time_median_per_repo,8.118029015864355e-10
+resolution_time_days[window2|size=Q4],"AI_Agent, Newcomer_AI, Newcomer, Veteran_AI, Veteran",213000.0,7803.2382584876295,0.0,size,Q4,resolution_time_days,0.0
+acceptance_rate_per_repo[window2|size=Q4],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",202.0,115.0110833376258,9.155847165328852e-25,size,Q4,acceptance_rate_per_repo,1.8311694330657705e-24
+resolution_time_median_per_repo[window2|size=Q4],"Newcomer_AI, Newcomer, Veteran_AI, Veteran",185.0,33.25923025886516,2.839620242960057e-07,size,Q4,resolution_time_median_per_repo,3.7861603239467425e-07

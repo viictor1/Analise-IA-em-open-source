@@ -1,0 +1,11 @@
+metric,group_1,group_2,test,n1,n2,median_1,median_2,paired_median_diff,repos_1_greater,repos_1_less,repos_tied,mwu_p,significant,effect_measure,effect,magnitude,mwu_p_fdr
+gfi_rate_per_repo[until 2026-05],AI_Agent,Newcomer_AI,paired_wilcoxon,21,21,0.0,0.0,0.0,1,8,12,0.010862224704815628,True,paired_rank_biserial,-0.9555555555555556,large,0.016052101465352714
+gfi_rate_per_repo[until 2026-05],AI_Agent,Newcomer,paired_wilcoxon,26,26,0.0,0.01020845432555412,-0.007464450852059445,3,16,7,0.011236471025746899,True,paired_rank_biserial,-0.6631578947368421,large,0.016052101465352714
+gfi_rate_per_repo[until 2026-05],AI_Agent,Veteran_AI,paired_wilcoxon,24,24,0.0,0.0,0.0,4,5,15,0.8589549227374824,False,paired_rank_biserial,,,0.8979718156630753
+gfi_rate_per_repo[until 2026-05],AI_Agent,Veteran,paired_wilcoxon,26,26,0.0,4.5508328024028396e-05,0.0,6,7,13,0.700703412251682,False,paired_rank_biserial,,,0.8758792653146025
+gfi_rate_per_repo[until 2026-05],Newcomer_AI,Newcomer,paired_wilcoxon,43,43,0.0,0.012393493415956624,0.0,13,21,9,0.8979718156630753,False,paired_rank_biserial,,,0.8979718156630753
+gfi_rate_per_repo[until 2026-05],Newcomer_AI,Veteran_AI,paired_wilcoxon,37,37,0.0,0.0,0.0,16,2,19,0.0006292038308113259,True,paired_rank_biserial,0.9181286549707602,large,0.0015730095770283149
+gfi_rate_per_repo[until 2026-05],Newcomer_AI,Veteran,paired_wilcoxon,43,43,0.0,0.00019821605550049553,0.0,19,8,16,0.0005409786482367017,True,paired_rank_biserial,0.7619047619047619,large,0.0015730095770283149
+gfi_rate_per_repo[until 2026-05],Newcomer,Veteran_AI,paired_wilcoxon,68,68,0.012617979584690641,0.0,0.01194040490447676,48,4,16,1.3979596055743194e-08,True,paired_rank_biserial,0.9042089985486212,large,6.989798027871597e-08
+gfi_rate_per_repo[until 2026-05],Newcomer,Veteran,paired_wilcoxon,100,100,0.01642696629213483,0.0001921226310429647,0.015246376811594204,75,8,17,1.1055873251378587e-12,True,paired_rank_biserial,0.8993115318416524,large,1.1055873251378586e-11
+gfi_rate_per_repo[until 2026-05],Veteran_AI,Veteran,paired_wilcoxon,68,68,0.0,0.00012194923919968962,0.0,6,30,32,0.002984803394721606,True,paired_rank_biserial,-0.5675675675675675,large,0.005969606789443212
