@@ -19,6 +19,7 @@ The open answers (WILLINGNESS, THEMES) were coded manually by one coder; the
 codes are fixed here, keyed by the form timestamp.
 """
 
+import json
 import os
 
 import numpy as np
@@ -82,6 +83,7 @@ MOTIVATION = {
     "I want to build a portfolio / strengthen my CV for hiring": "Portfolio / CV",
     "I'm paid or receive a stipend to contribute": "Paid to contribute",
     "I want to support other contributors and share knowledge with the community": "Support others / share knowledge",
+    "I like collaborating with this team and being part of an inclusive community": "Collaborate / inclusive community",
 }
 FACTOR = {
     "Having my contributions recognized and valued by the community": "Recognition",
@@ -97,10 +99,11 @@ ASPECT = {
     "No noticeable change": "No noticeable change",
 }
 
-# Answers excluded from the analysis (clearly invalid).
+# Answers excluded from the analysis (clearly invalid or without consent).
 INVALID = {
     ("Newcomer_no_AI", "2026/10/02 8:44:28 PM GMT-3"),
     ("Newcomer_AI", "2026/10/05 11:47:42 AM GMT-3"),
+    ("Newcomer_AI", "2026/10/14 12:03:17 PM GMT-3"),
 }
 
 # Project field reduced to the project name: these answers cited the
@@ -110,10 +113,21 @@ PROJECTS_REDACTED = {
     ("Newcomer_AI", "2026/10/01 8:20:34 AM GMT-3"): "github-readme-stats",
 }
 
+# Open answers that name the respondent's employer. The text to replace would
+# identify the respondent, so the list stays in a local file that is not
+# distributed (survey_redactions.json: group, ts, column, text, replacement).
+REDACTIONS_FILE = "survey_redactions.json"
+TEXT_REDACTED = {}
+if os.path.exists(REDACTIONS_FILE):
+    with open(REDACTIONS_FILE, encoding="utf-8") as f:
+        TEXT_REDACTED = {
+            (r["group"], r["ts"], r["column"]): (r["text"], r["replacement"]) for r in json.load(f)
+        }
+
 # Effect of AI use on the willingness to contribute (question 10), only for
 # respondents who used AI: increased | no_effect | ambiguous.
 WILLINGNESS = {
-    ("Newcomer_AI", "2026/09/30 9:41:09 AM GMT-3"): "ambiguous",
+    ("Newcomer_AI", "2026/09/30 9:41:09 AM GMT-3"): "increased",
     ("Newcomer_AI", "2026/09/30 12:11:27 PM GMT-3"): "no_effect",
     ("Newcomer_AI", "2026/09/30 12:25:40 PM GMT-3"): "no_effect",
     ("Newcomer_AI", "2026/10/01 4:18:04 AM GMT-3"): "increased",
@@ -127,47 +141,76 @@ WILLINGNESS = {
     ("Newcomer_AI", "2026/10/06 1:21:05 PM GMT-3"): "increased",
     ("Newcomer_AI", "2026/10/06 3:45:55 PM GMT-3"): "increased",
     ("Newcomer_AI", "2026/10/07 12:13:53 PM GMT-3"): "increased",
+    ("Newcomer_AI", "2026/10/13 6:40:55 PM GMT-3"): "increased",
+    ("Newcomer_AI", "2026/10/14 1:04:38 PM GMT-3"): "no_effect",
+    ("Newcomer_AI", "2026/10/14 2:57:23 PM GMT-3"): "increased",
+    ("Newcomer_AI", "2026/10/14 4:58:28 PM GMT-3"): "no_effect",
+    ("Newcomer_AI", "2026/10/15 1:24:57 AM GMT-3"): "increased",
+    ("Newcomer_AI", "2026/10/15 5:24:41 AM GMT-3"): "increased",
+    ("Newcomer_AI", "2026/10/15 9:58:08 AM GMT-3"): "increased",
+    ("Newcomer_AI", "2026/10/15 12:23:55 PM GMT-3"): "increased",
     ("Newcomer_no_AI", "2026/10/01 10:36:35 AM GMT-3"): "increased",
     ("Newcomer_no_AI", "2026/10/07 4:48:06 AM GMT-3"): "no_effect",
     ("Newcomer_no_AI", "2026/10/07 12:58:52 PM GMT-3"): "increased",
     ("Newcomer_no_AI", "2026/10/12 6:11:41 AM GMT-3"): "no_effect",
+    ("Newcomer_no_AI", "2026/10/14 4:44:37 PM GMT-3"): "no_effect",
+    ("Newcomer_no_AI", "2026/10/15 12:14:09 PM GMT-3"): "increased",
+    ("Newcomer_no_AI", "2026/10/15 4:58:27 PM GMT-3"): "no_effect",
+    ("Newcomer_no_AI", "2026/10/16 3:29:12 AM GMT-3"): "increased",
 }
 
 # Themes of the open answers (belonging explanation, AI use and willingness),
 # multi-label:
-#   barrier          AI let the person contribute what they could not do alone
+#   lowers_barrier   without AI the person would not have contributed, or AI made
+#                    it much easier to start (skill, time or effort)
 #   tool             AI is just a tool; the human stays responsible
 #   human_loop       depends on how it is used / on the human reviewing it
 #   slop             low-effort contributions, noise, credit seeking
 #   interaction      loss of interaction, learning or human contact
 #   opens_community  AI widens the community (users become developers)
-#   insecurity       insecurity / impostor syndrome
-#   learning         AI helped to understand the code and the project workflow
+#   impostor_syndrome mentions impostor syndrome or lack of confidence
+#   onboarding       AI helped to understand the code and the project workflow
+#   teammate         AI as a collaborator or peer, not as a tool
+#   detachment       AI weakens the sense of ownership of one's own work
 THEMES = {
-    ("Newcomer_AI", "2026/09/30 9:41:09 AM GMT-3"): ["barrier", "opens_community"],
-    ("Newcomer_AI", "2026/09/30 12:11:27 PM GMT-3"): ["tool", "learning"],
+    ("Newcomer_AI", "2026/09/30 9:41:09 AM GMT-3"): ["lowers_barrier", "opens_community"],
+    ("Newcomer_AI", "2026/09/30 12:11:27 PM GMT-3"): ["tool", "onboarding"],
     ("Newcomer_AI", "2026/09/30 12:25:40 PM GMT-3"): ["slop"],
-    ("Newcomer_AI", "2026/10/01 4:18:04 AM GMT-3"): ["insecurity"],
-    ("Newcomer_AI", "2026/10/01 8:20:34 AM GMT-3"): ["learning"],
+    ("Newcomer_AI", "2026/10/01 4:18:04 AM GMT-3"): ["impostor_syndrome"],
+    ("Newcomer_AI", "2026/10/01 8:20:34 AM GMT-3"): ["onboarding"],
     ("Newcomer_AI", "2026/10/01 10:40:06 AM GMT-3"): ["tool"],
     ("Newcomer_AI", "2026/10/01 12:34:27 PM GMT-3"): [
-        "barrier",
+        "lowers_barrier",
         "opens_community",
         "human_loop",
         "interaction",
     ],
     ("Newcomer_AI", "2026/10/02 2:32:04 AM GMT-3"): ["tool"],
-    ("Newcomer_AI", "2026/10/03 11:44:50 PM GMT-3"): ["barrier", "tool"],
+    ("Newcomer_AI", "2026/10/03 11:44:50 PM GMT-3"): ["lowers_barrier", "tool"],
     ("Newcomer_AI", "2026/10/05 11:47:42 AM GMT-3"): ["tool"],
-    ("Newcomer_AI", "2026/10/05 3:33:04 PM GMT-3"): ["barrier"],
+    ("Newcomer_AI", "2026/10/05 3:33:04 PM GMT-3"): ["lowers_barrier"],
     ("Newcomer_AI", "2026/10/06 1:21:05 PM GMT-3"): ["slop"],
-    ("Newcomer_AI", "2026/10/06 3:45:55 PM GMT-3"): ["human_loop", "barrier", "learning"],
+    ("Newcomer_AI", "2026/10/06 3:45:55 PM GMT-3"): ["human_loop", "lowers_barrier", "onboarding"],
     ("Newcomer_AI", "2026/10/07 12:13:53 PM GMT-3"): ["tool"],
     ("Newcomer_AI", "2026/10/07 8:01:20 PM GMT-3"): ["interaction"],
+    ("Newcomer_AI", "2026/10/13 6:40:55 PM GMT-3"): ["tool", "onboarding"],
+    ("Newcomer_AI", "2026/10/14 1:04:38 PM GMT-3"): ["tool"],
+    ("Newcomer_AI", "2026/10/14 2:57:23 PM GMT-3"): ["human_loop", "onboarding"],
+    ("Newcomer_AI", "2026/10/14 4:58:28 PM GMT-3"): ["teammate"],
+    ("Newcomer_AI", "2026/10/15 1:24:57 AM GMT-3"): ["lowers_barrier"],
+    ("Newcomer_AI", "2026/10/15 5:24:41 AM GMT-3"): ["lowers_barrier", "onboarding"],
+    ("Newcomer_AI", "2026/10/15 9:58:08 AM GMT-3"): ["tool", "human_loop"],
+    ("Newcomer_AI", "2026/10/15 12:23:55 PM GMT-3"): ["tool"],
     ("Newcomer_no_AI", "2026/10/01 10:36:35 AM GMT-3"): ["interaction"],
     ("Newcomer_no_AI", "2026/10/07 4:48:06 AM GMT-3"): ["tool", "slop"],
     ("Newcomer_no_AI", "2026/10/07 12:58:52 PM GMT-3"): ["human_loop", "slop"],
     ("Newcomer_no_AI", "2026/10/12 6:11:41 AM GMT-3"): ["human_loop"],
+    ("Newcomer_no_AI", "2026/10/14 3:45:47 PM GMT-3"): ["interaction", "human_loop", "slop"],
+    ("Newcomer_no_AI", "2026/10/14 4:44:37 PM GMT-3"): ["tool", "human_loop", "onboarding"],
+    ("Newcomer_no_AI", "2026/10/15 12:13:12 PM GMT-3"): ["tool"],
+    ("Newcomer_no_AI", "2026/10/15 12:14:09 PM GMT-3"): ["interaction", "onboarding", "impostor_syndrome"],
+    ("Newcomer_no_AI", "2026/10/15 4:58:27 PM GMT-3"): ["human_loop", "slop", "onboarding"],
+    ("Newcomer_no_AI", "2026/10/16 3:29:12 AM GMT-3"): ["tool", "opens_community", "human_loop", "onboarding"],
     ("Maintainer", "2026/09/30 10:29:04 AM GMT-3"): ["tool"],
     ("Maintainer", "2026/09/30 11:04:19 AM GMT-3"): ["human_loop"],
     ("Maintainer", "2026/09/30 11:32:43 AM GMT-3"): ["interaction"],
@@ -183,6 +226,18 @@ THEMES = {
     ("Maintainer", "2026/10/07 8:36:53 AM GMT-3"): ["human_loop"],
     ("Maintainer", "2026/10/09 8:58:51 AM GMT-3"): ["tool", "human_loop"],
     ("Maintainer", "2026/10/12 1:20:37 PM GMT-3"): ["slop"],
+    ("Maintainer", "2026/10/14 9:00:36 AM GMT-3"): ["interaction"],
+    ("Maintainer", "2026/10/14 11:33:17 AM GMT-3"): ["tool"],
+    ("Maintainer", "2026/10/14 11:50:40 AM GMT-3"): ["slop"],
+    ("Maintainer", "2026/10/14 12:06:00 PM GMT-3"): ["lowers_barrier", "human_loop"],
+    ("Maintainer", "2026/10/15 9:51:13 AM GMT-3"): ["interaction", "human_loop"],
+    ("Maintainer", "2026/10/15 11:09:28 AM GMT-3"): ["slop", "interaction", "lowers_barrier"],
+    ("Maintainer", "2026/10/15 11:18:01 AM GMT-3"): ["interaction"],
+    ("Maintainer", "2026/10/15 11:48:26 AM GMT-3"): ["slop", "interaction"],
+    ("Maintainer", "2026/10/15 12:16:12 PM GMT-3"): ["slop"],
+    ("Maintainer", "2026/10/15 1:02:04 PM GMT-3"): ["detachment"],
+    ("Maintainer", "2026/10/15 10:37:42 PM GMT-3"): ["tool"],
+    ("Maintainer", "2026/10/16 9:44:49 AM GMT-3"): ["interaction"],
 }
 
 # Maintainers who answer No (AI does not undermine belonging) but explain it
@@ -193,6 +248,10 @@ NO_WITH_CAVEAT = {
     "2026/10/05 4:51:24 PM GMT-3",
     "2026/10/06 10:52:12 AM GMT-3",
     "2026/10/07 8:36:53 AM GMT-3",
+    "2026/10/14 9:00:36 AM GMT-3",
+    "2026/10/14 12:06:00 PM GMT-3",
+    "2026/10/15 11:18:01 AM GMT-3",
+    "2026/10/15 12:16:12 PM GMT-3",
 }
 
 
@@ -449,6 +508,10 @@ def open_ended(df):
         sel = (out.group == g) & (out.ts == ts)
         assert sel.sum() == 1, (g, ts)
         out.loc[sel, "projects"] = name
+    for (g, ts, c), (text, repl) in TEXT_REDACTED.items():
+        sel = (out.group == g) & (out.ts == ts)
+        assert sel.sum() == 1 and text in out.loc[sel, c].iloc[0], (g, ts, c)
+        out.loc[sel, c] = out.loc[sel, c].str.replace(text, repl, regex=False)
     for c in ["undermines_explanation", "how_used", "willingness", "noticed_ai", "projects"]:
         out[c] = out[c].astype("string").str.replace(r"\s*\n\s*", " / ", regex=True)
     out.to_csv(f"{OUT_DIR}/survey_open_answers.csv", index=False)
@@ -475,7 +538,13 @@ if __name__ == "__main__":
     df = load()
     missing = [k for k in list(WILLINGNESS) + list(THEMES) if k not in set(zip(df.group, df.ts))]
     assert not missing, f"codes without a matching answer: {missing}"
-    no_code = df[~df.invalid & df.newcomer & (df.used_ai == "Yes") & df.willingness_code.isna()]
+    no_code = df[
+        ~df.invalid
+        & df.newcomer
+        & (df.used_ai == "Yes")
+        & df.willingness.notna()
+        & df.willingness_code.isna()
+    ]
     assert no_code.empty, f"answers without a willingness code: {no_code.ts.tolist()}"
 
     pd.set_option("display.width", 200)

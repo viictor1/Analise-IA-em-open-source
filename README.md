@@ -89,4 +89,6 @@ Windows are `window1` / `before` (before the adoption threshold), `window2` /
   `results/branches_serena.csv`) are not versioned.
 - The raw survey exports, the invitation lists and the contact lists are not
   shared, because they contain personal data. `survey_analysis.py` keeps the
-  manual coding of the open answers.
+  manual coding of the open answers. The list of text redacted from the open
+  answers (`survey_redactions.json`) is not shared either, since it would
+  identify a respondent.
