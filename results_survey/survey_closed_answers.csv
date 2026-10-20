@@ -1,69 +1,75 @@
 group,question,answer,n,total,pct
-Maintainer,aspect,Efficiency and flow,12,27,44.4
-Maintainer,aspect,Communication and collaboration,10,27,37.0
-Maintainer,aspect,Satisfaction and well-being,4,27,14.8
-Maintainer,aspect,No noticeable change,1,27,3.7
-Maintainer,belonging_factor,Recognition,11,27,40.7
-Maintainer,belonging_factor,Feeling like a member,7,27,25.9
-Maintainer,belonging_factor,Knowing who to ask / being known,4,27,14.8
-Maintainer,belonging_factor,Project as home,3,27,11.1
-Maintainer,belonging_factor,Support from others,2,27,7.4
-Maintainer,undermines_belonging,No,19,27,70.4
-Maintainer,undermines_belonging,Yes,8,27,29.6
-Newcomer_AI,motivation,Fix a problem I face as a user,6,16,37.5
-Newcomer_AI,motivation,Open source philosophy,4,16,25.0
-Newcomer_AI,motivation,Learn,3,16,18.8
-Newcomer_AI,motivation,Portfolio / CV,1,16,6.2
-Newcomer_AI,motivation,Give back (I use the software),1,16,6.2
-Newcomer_AI,motivation,Fun / hobby,1,16,6.2
-Newcomer_AI,aspect,Efficiency and flow,11,16,68.8
-Newcomer_AI,aspect,No noticeable change,3,16,18.8
-Newcomer_AI,aspect,Satisfaction and well-being,2,16,12.5
-Newcomer_AI,belonging_factor,Recognition,7,16,43.8
-Newcomer_AI,belonging_factor,Support from others,6,16,37.5
-Newcomer_AI,belonging_factor,Feeling like a member,2,16,12.5
-Newcomer_AI,belonging_factor,Project as home,1,16,6.2
-Newcomer_AI,undermines_belonging,No,10,16,62.5
-Newcomer_AI,undermines_belonging,Yes,6,16,37.5
-Newcomer_AI,used_ai,Yes,14,16,87.5
-Newcomer_AI,used_ai,No,2,16,12.5
-Newcomer_AI,willingness_code,increased,10,14,71.4
-Newcomer_AI,willingness_code,no_effect,3,14,21.4
-Newcomer_AI,willingness_code,ambiguous,1,14,7.1
-Newcomer_no_AI,motivation,Give back (I use the software),2,6,33.3
-Newcomer_no_AI,motivation,Fix a problem I face as a user,2,6,33.3
-Newcomer_no_AI,motivation,Fun / hobby,1,6,16.7
-Newcomer_no_AI,motivation,Support others / share knowledge,1,6,16.7
-Newcomer_no_AI,aspect,Efficiency and flow,4,6,66.7
-Newcomer_no_AI,aspect,Satisfaction and well-being,1,6,16.7
-Newcomer_no_AI,aspect,Communication and collaboration,1,6,16.7
-Newcomer_no_AI,belonging_factor,Recognition,5,6,83.3
-Newcomer_no_AI,belonging_factor,Feeling like a member,1,6,16.7
-Newcomer_no_AI,undermines_belonging,Yes,4,6,66.7
-Newcomer_no_AI,undermines_belonging,No,2,6,33.3
-Newcomer_no_AI,used_ai,Yes,4,6,66.7
-Newcomer_no_AI,used_ai,No,2,6,33.3
-Newcomer_no_AI,willingness_code,increased,2,4,50.0
-Newcomer_no_AI,willingness_code,no_effect,2,4,50.0
-Newcomer,motivation,Fix a problem I face as a user,8,22,36.4
-Newcomer,motivation,Open source philosophy,4,22,18.2
-Newcomer,motivation,Give back (I use the software),3,22,13.6
-Newcomer,motivation,Learn,3,22,13.6
-Newcomer,motivation,Fun / hobby,2,22,9.1
-Newcomer,motivation,Portfolio / CV,1,22,4.5
-Newcomer,motivation,Support others / share knowledge,1,22,4.5
-Newcomer,aspect,Efficiency and flow,15,22,68.2
-Newcomer,aspect,No noticeable change,3,22,13.6
-Newcomer,aspect,Satisfaction and well-being,3,22,13.6
-Newcomer,aspect,Communication and collaboration,1,22,4.5
-Newcomer,belonging_factor,Recognition,12,22,54.5
-Newcomer,belonging_factor,Support from others,6,22,27.3
-Newcomer,belonging_factor,Feeling like a member,3,22,13.6
-Newcomer,belonging_factor,Project as home,1,22,4.5
-Newcomer,undermines_belonging,No,12,22,54.5
-Newcomer,undermines_belonging,Yes,10,22,45.5
-Newcomer,used_ai,Yes,18,22,81.8
-Newcomer,used_ai,No,4,22,18.2
-Newcomer,willingness_code,increased,12,18,66.7
-Newcomer,willingness_code,no_effect,5,18,27.8
-Newcomer,willingness_code,ambiguous,1,18,5.6
+Maintainer,aspect,Communication and collaboration,19,46,41.3
+Maintainer,aspect,Efficiency and flow,18,46,39.1
+Maintainer,aspect,Satisfaction and well-being,7,46,15.2
+Maintainer,aspect,No noticeable change,2,46,4.3
+Maintainer,belonging_factor,Recognition,18,46,39.1
+Maintainer,belonging_factor,Feeling like a member,11,46,23.9
+Maintainer,belonging_factor,Support from others,6,46,13.0
+Maintainer,belonging_factor,Project as home,6,46,13.0
+Maintainer,belonging_factor,Knowing who to ask / being known,5,46,10.9
+Maintainer,undermines_belonging,No,32,46,69.6
+Maintainer,undermines_belonging,Yes,14,46,30.4
+Newcomer_AI,motivation,Fix a problem I face as a user,9,26,34.6
+Newcomer_AI,motivation,Open source philosophy,5,26,19.2
+Newcomer_AI,motivation,Learn,4,26,15.4
+Newcomer_AI,motivation,Fun / hobby,3,26,11.5
+Newcomer_AI,motivation,Give back (I use the software),3,26,11.5
+Newcomer_AI,motivation,Portfolio / CV,1,26,3.8
+Newcomer_AI,motivation,Paid to contribute,1,26,3.8
+Newcomer_AI,aspect,Efficiency and flow,17,26,65.4
+Newcomer_AI,aspect,No noticeable change,5,26,19.2
+Newcomer_AI,aspect,Satisfaction and well-being,4,26,15.4
+Newcomer_AI,belonging_factor,Recognition,16,26,61.5
+Newcomer_AI,belonging_factor,Support from others,7,26,26.9
+Newcomer_AI,belonging_factor,Feeling like a member,2,26,7.7
+Newcomer_AI,belonging_factor,Project as home,1,26,3.8
+Newcomer_AI,undermines_belonging,No,19,26,73.1
+Newcomer_AI,undermines_belonging,Yes,7,26,26.9
+Newcomer_AI,used_ai,Yes,23,26,88.5
+Newcomer_AI,used_ai,No,3,26,11.5
+Newcomer_AI,willingness_code,increased,17,22,77.3
+Newcomer_AI,willingness_code,no_effect,5,22,22.7
+Newcomer_no_AI,motivation,Give back (I use the software),3,12,25.0
+Newcomer_no_AI,motivation,Fix a problem I face as a user,3,12,25.0
+Newcomer_no_AI,motivation,Collaborate / inclusive community,2,12,16.7
+Newcomer_no_AI,motivation,Support others / share knowledge,1,12,8.3
+Newcomer_no_AI,motivation,Fun / hobby,1,12,8.3
+Newcomer_no_AI,motivation,Open source philosophy,1,12,8.3
+Newcomer_no_AI,motivation,Portfolio / CV,1,12,8.3
+Newcomer_no_AI,aspect,Efficiency and flow,8,12,66.7
+Newcomer_no_AI,aspect,Communication and collaboration,3,12,25.0
+Newcomer_no_AI,aspect,Satisfaction and well-being,1,12,8.3
+Newcomer_no_AI,belonging_factor,Recognition,8,12,66.7
+Newcomer_no_AI,belonging_factor,Feeling like a member,3,12,25.0
+Newcomer_no_AI,belonging_factor,Knowing who to ask / being known,1,12,8.3
+Newcomer_no_AI,undermines_belonging,Yes,7,12,58.3
+Newcomer_no_AI,undermines_belonging,No,5,12,41.7
+Newcomer_no_AI,used_ai,Yes,8,12,66.7
+Newcomer_no_AI,used_ai,No,4,12,33.3
+Newcomer_no_AI,willingness_code,increased,4,8,50.0
+Newcomer_no_AI,willingness_code,no_effect,4,8,50.0
+Newcomer,motivation,Fix a problem I face as a user,12,38,31.6
+Newcomer,motivation,Open source philosophy,6,38,15.8
+Newcomer,motivation,Give back (I use the software),6,38,15.8
+Newcomer,motivation,Learn,4,38,10.5
+Newcomer,motivation,Fun / hobby,4,38,10.5
+Newcomer,motivation,Portfolio / CV,2,38,5.3
+Newcomer,motivation,Collaborate / inclusive community,2,38,5.3
+Newcomer,motivation,Paid to contribute,1,38,2.6
+Newcomer,motivation,Support others / share knowledge,1,38,2.6
+Newcomer,aspect,Efficiency and flow,25,38,65.8
+Newcomer,aspect,No noticeable change,5,38,13.2
+Newcomer,aspect,Satisfaction and well-being,5,38,13.2
+Newcomer,aspect,Communication and collaboration,3,38,7.9
+Newcomer,belonging_factor,Recognition,24,38,63.2
+Newcomer,belonging_factor,Support from others,7,38,18.4
+Newcomer,belonging_factor,Feeling like a member,5,38,13.2
+Newcomer,belonging_factor,Project as home,1,38,2.6
+Newcomer,belonging_factor,Knowing who to ask / being known,1,38,2.6
+Newcomer,undermines_belonging,No,24,38,63.2
+Newcomer,undermines_belonging,Yes,14,38,36.8
+Newcomer,used_ai,Yes,31,38,81.6
+Newcomer,used_ai,No,7,38,18.4
+Newcomer,willingness_code,increased,21,30,70.0
+Newcomer,willingness_code,no_effect,9,30,30.0
