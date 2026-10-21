@@ -3,14 +3,14 @@ newcomers,motivation,undermines_belonging,Collaborate / inclusive community,No,1
 newcomers,motivation,undermines_belonging,Collaborate / inclusive community,Yes,1,2
 newcomers,motivation,undermines_belonging,Fix a problem I face as a user,No,9,12
 newcomers,motivation,undermines_belonging,Fix a problem I face as a user,Yes,3,12
-newcomers,motivation,undermines_belonging,Fun / hobby,No,3,4
-newcomers,motivation,undermines_belonging,Fun / hobby,Yes,1,4
+newcomers,motivation,undermines_belonging,Fun / hobby,No,4,6
+newcomers,motivation,undermines_belonging,Fun / hobby,Yes,2,6
 newcomers,motivation,undermines_belonging,Give back (I use the software),No,1,6
 newcomers,motivation,undermines_belonging,Give back (I use the software),Yes,5,6
 newcomers,motivation,undermines_belonging,Learn,No,1,4
 newcomers,motivation,undermines_belonging,Learn,Yes,3,4
-newcomers,motivation,undermines_belonging,Open source philosophy,No,6,6
-newcomers,motivation,undermines_belonging,Open source philosophy,Yes,0,6
+newcomers,motivation,undermines_belonging,Open source philosophy,No,7,7
+newcomers,motivation,undermines_belonging,Open source philosophy,Yes,0,7
 newcomers,motivation,undermines_belonging,Paid to contribute,No,1,1
 newcomers,motivation,undermines_belonging,Paid to contribute,Yes,0,1
 newcomers,motivation,undermines_belonging,Portfolio / CV,No,2,2
@@ -23,10 +23,10 @@ newcomers,belonging_factor,undermines_belonging,Knowing who to ask / being known
 newcomers,belonging_factor,undermines_belonging,Knowing who to ask / being known,Yes,0,1
 newcomers,belonging_factor,undermines_belonging,Project as home,No,1,1
 newcomers,belonging_factor,undermines_belonging,Project as home,Yes,0,1
-newcomers,belonging_factor,undermines_belonging,Recognition,No,16,24
-newcomers,belonging_factor,undermines_belonging,Recognition,Yes,8,24
-newcomers,belonging_factor,undermines_belonging,Support from others,No,4,7
-newcomers,belonging_factor,undermines_belonging,Support from others,Yes,3,7
+newcomers,belonging_factor,undermines_belonging,Recognition,No,17,26
+newcomers,belonging_factor,undermines_belonging,Recognition,Yes,9,26
+newcomers,belonging_factor,undermines_belonging,Support from others,No,5,8
+newcomers,belonging_factor,undermines_belonging,Support from others,Yes,3,8
 maintainers,belonging_factor,undermines_belonging,Feeling like a member,No,8,11
 maintainers,belonging_factor,undermines_belonging,Feeling like a member,Yes,3,11
 maintainers,belonging_factor,undermines_belonging,Knowing who to ask / being known,No,4,5
@@ -37,18 +37,18 @@ maintainers,belonging_factor,undermines_belonging,Recognition,No,11,18
 maintainers,belonging_factor,undermines_belonging,Recognition,Yes,7,18
 maintainers,belonging_factor,undermines_belonging,Support from others,No,5,6
 maintainers,belonging_factor,undermines_belonging,Support from others,Yes,1,6
-newcomers,used_ai,undermines_belonging,No,No,3,7
-newcomers,used_ai,undermines_belonging,No,Yes,4,7
+newcomers,used_ai,undermines_belonging,No,No,5,10
+newcomers,used_ai,undermines_belonging,No,Yes,5,10
 newcomers,used_ai,undermines_belonging,Yes,No,21,31
 newcomers,used_ai,undermines_belonging,Yes,Yes,10,31
-newcomers,group,undermines_belonging,Newcomer_AI,No,19,26
-newcomers,group,undermines_belonging,Newcomer_AI,Yes,7,26
-newcomers,group,undermines_belonging,Newcomer_no_AI,No,5,12
-newcomers,group,undermines_belonging,Newcomer_no_AI,Yes,7,12
+newcomers,group,undermines_belonging,Newcomer_AI,No,20,28
+newcomers,group,undermines_belonging,Newcomer_AI,Yes,8,28
+newcomers,group,undermines_belonging,Newcomer_no_AI,No,6,13
+newcomers,group,undermines_belonging,Newcomer_no_AI,Yes,7,13
 newcomers,aspect,undermines_belonging,Communication and collaboration,No,1,3
 newcomers,aspect,undermines_belonging,Communication and collaboration,Yes,2,3
-newcomers,aspect,undermines_belonging,Efficiency and flow,No,19,25
-newcomers,aspect,undermines_belonging,Efficiency and flow,Yes,6,25
+newcomers,aspect,undermines_belonging,Efficiency and flow,No,21,28
+newcomers,aspect,undermines_belonging,Efficiency and flow,Yes,7,28
 newcomers,aspect,undermines_belonging,No noticeable change,No,3,5
 newcomers,aspect,undermines_belonging,No noticeable change,Yes,2,5
 newcomers,aspect,undermines_belonging,Satisfaction and well-being,No,1,5
