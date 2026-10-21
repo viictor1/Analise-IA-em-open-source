@@ -6,10 +6,10 @@ maintainers,tool,6,0,6
 maintainers,lowers_barrier,1,1,2
 maintainers,detachment,0,1,1
 newcomers,tool,12,1,13
-newcomers,human_loop,4,6,10
+newcomers,human_loop,5,7,12
 newcomers,onboarding,6,4,10
-newcomers,lowers_barrier,5,2,7
-newcomers,slop,3,3,6
+newcomers,lowers_barrier,6,2,8
+newcomers,slop,4,3,7
 newcomers,interaction,1,4,5
 newcomers,opens_community,1,2,3
 newcomers,impostor_syndrome,1,1,2
