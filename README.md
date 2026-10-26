@@ -5,13 +5,15 @@ Code and results of a study of agentic AI adoption in 450 GitHub repositories
 newcomer flow, the contribution process and the perception of newcomers and
 maintainers relate to it.
 
+> **The technical details that the paper summarizes (data collection, AI detection,
+> data dictionary, survey sampling, difference-in-differences) are in
+> [REPLICATION.md](REPLICATION.md).**
+
 - **RQ1.** Does the monthly flow of newcomers change during agentic AI adoption?
 - **RQ2.** How do resolution time and acceptance differ between contributions
   with and without AI evidence?
 - **RQ3.** How do newcomers and maintainers perceive agentic AI adoption and its
   relation to belonging? (survey)
-
-Technical details that the paper summarizes are in [REPLICATION.md](REPLICATION.md).
 
 ## Repository layout
 
