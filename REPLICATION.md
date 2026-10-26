@@ -16,7 +16,7 @@ The GraphQL listing runs from the newest to the oldest pull request and stopped 
 - 188 pull requests missing from the search index, recovered by number with all fields;
 - 323 removed pull requests that could not be loaded, 0.17% of the 13 repositories and 0.012% of the 2,628,498 pull requests collected in the 450; 270 of them are in `yt-dlp/yt-dlp` (6.0% of its pull requests), and every other repository loses at most 0.9%.
 
-> Pending (M13): the script that recovered the 188 pull requests by number is not in the repository yet.
+The probe by number is done by `recover_by_number.py` (pipeline step 2b). It covers the numbers between the oldest and the newest collected pull request, so pull requests opened after the collection are not added. A rerun in October 2026 (`--check`, which writes nothing) found again 187 of the 188 recovered pull requests, plus 52 that GitHub did not serve in September, and none of the 323 removed ones, which GitHub now reports as not found instead of failing with an internal error. The numbers above are those of the September collection.
 
 ## 2. AI detection (from *AI Detection in Pull Requests*)
 

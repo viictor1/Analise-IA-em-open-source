@@ -35,6 +35,7 @@ Run the scripts from the repository root, in this order.
 |---|---|---|---|
 | 1 | `fetch_most_starred.py` | Selects the repositories: the most-starred ones per language that pass the automatic filters, confirmed one by one by hand (GitHub API) | `data/selected_repos.csv`, `data/repo_selection_log.csv` |
 | 2 | `fetch_prs.py` | Collects every PR since 2022 with its commits, author, branch, labels and closed issues (GitHub GraphQL API) | `data/raw_prs/` |
+| 2b | `recover_by_number.py` | In the 13 repositories collected through the search API, probes every PR number, fetches the PRs missing from the search index and records the removed PRs that cannot be loaded | `data/raw_prs/` |
 | 3 | `collection_gaps.py` | Counts the removed PRs that could not be collected in the 13 repositories where they broke the GraphQL listing | `results/collection_gaps.csv` |
 | 4 | `classify_prs.py` | Detects AI evidence in each PR with the heuristics of Robbes et al. and splits the PRs into AI and human control | `data/ai_prs.csv`, `data/human_prs.csv` |
 | 5 | `post_classification.py` | Moves the confirmed false positives to the human control, fixes implausible signal dates and counts AI PRs per detection signal | `results/detection_per_source.csv` |
@@ -55,7 +56,7 @@ Run the scripts from the repository root, in this order.
 | 13 | `plot_rq2.py` | Plots acceptance, resolution time and who closes good first issues per group (RQ2) | `figures/rq2_*.pdf` |
 | 13 | `plot_breakdowns_rq2.py` | Plots the RQ2 breakdowns by language, stars and community size | `figures/rq2_breakdowns_*.pdf` |
 
-Steps 1, 2 and 7 call the GitHub API and need tokens in a `.env` file (see
+Steps 1, 2, 2b and 7 call the GitHub API and need tokens in a `.env` file (see
 `.env.example`). The collection takes days and the classification a few
 hours; `analysis.py` takes about 3 minutes and `did_bjs.py` about 5.
 

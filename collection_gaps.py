@@ -1,9 +1,9 @@
 """Collection gaps in the 13 repositories collected through the search API.
 
 In these repositories a removed pull request broke the GraphQL listing, so
-fetch_prs.py fell back to the search API and checked completeness by
-enumerating PR numbers (fields unloadable_numbers and recovered_by_number of
-the raw JSON). Writes one row per affected repository plus a TOTAL row with
+fetch_prs.py fell back to the search API, and recover_by_number.py checked
+completeness by enumerating PR numbers (fields unloadable_numbers and
+recovered_by_number of the raw JSON). Writes one row per affected repository plus a TOTAL row with
 the share of removed PRs over the whole collection.
 """
 
