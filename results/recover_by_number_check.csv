@@ -1,0 +1,15 @@
+repo,probed,recovered_json,recovered_again,recovered_only_now,unloadable_json,unloadable_now,probe_failed
+JetBrains/kotlin,3610,0,0,0,2,0,0
+appwrite/appwrite,11242,2,2,3,2,0,0
+bitcoin/bitcoin,12373,32,32,3,6,0,0
+coollabsio/coolify,11785,11,11,35,1,0,0
+discourse/discourse,28415,3,3,0,1,0,0
+elastic/elasticsearch,77655,9,9,2,3,0,0
+electron/electron,21840,6,6,0,7,0,0
+files-community/Files,11582,0,0,0,5,0,0
+microsoft/terminal,8614,20,19,0,19,0,0
+nodejs/node,24795,24,24,6,1,0,0
+termux/termux-app,2790,2,2,0,4,0,0
+yt-dlp/yt-dlp,15514,38,38,1,270,0,0
+zed-industries/zed,64224,41,41,2,2,0,0
+TOTAL,294439,188,187,52,323,0,0

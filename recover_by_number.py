@@ -16,9 +16,11 @@ collection are not added.
 
 Usage:
     python recover_by_number.py            # updates data/raw_prs/*.json
-    python recover_by_number.py --check    # writes nothing, compares with the JSON
+    python recover_by_number.py --check    # leaves the JSON untouched, compares
+                                           # with it and writes CHECK_FILE
 """
 
+import csv
 import sys
 import json
 import time
@@ -29,6 +31,7 @@ import fetch_prs as fp
 PROBE_BATCH = 100  # PR numbers per probe query (one alias each)
 PROBE_RETRIES = 5
 INTERNAL_CONFIRM = 3  # single-number probes before a number counts as removed
+CHECK_FILE = "results/recover_by_number_check.csv"
 
 PR_BY_NUMBER_QUERY = """
 query($owner: String!, $name: String!, $number: Int!) {
@@ -183,9 +186,33 @@ def main():
             paths.append(path)
     print(f"{len(paths)} repositories collected through the search API", flush=True)
 
+    summaries = []
     with ThreadPoolExecutor(max_workers=max(1, min(len(paths), len(fp.GITHUB_TOKENS)))) as pool:
         for s in pool.map(lambda p: process(p, check), paths):
             print(json.dumps(s), flush=True)
+            summaries.append(s)
+
+    if check:
+        rows = [
+            {
+                "repo": s["repo"],
+                "probed": s["probed"],
+                "recovered_json": s["json_recovered"],
+                "recovered_again": s["json_recovered"] - len(s["recovered_only_json"]),
+                "recovered_only_now": len(s["recovered_only_now"]),
+                "unloadable_json": s["json_unloadable"],
+                "unloadable_now": s["unloadable"],
+                "probe_failed": len(s["probe_failed"]),
+            }
+            for s in summaries
+        ]
+        total = {k: sum(r[k] for r in rows) for k in rows[0] if k != "repo"}
+        rows.append({"repo": "TOTAL", **total})
+        with open(CHECK_FILE, "w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=rows[0].keys(), lineterminator="\n")
+            w.writeheader()
+            w.writerows(rows)
+        print(f"{CHECK_FILE}: {total}", flush=True)
 
 
 if __name__ == "__main__":

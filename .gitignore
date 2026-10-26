@@ -10,6 +10,7 @@
 !/recover_by_number.py
 !/collection_gaps.py
 !/classify_prs.py
+!/pattern_changes.py
 !/post_classification.py
 !/cutoff_counts.py
 !/repo_stats.py

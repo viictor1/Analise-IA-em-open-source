@@ -1728,6 +1728,35 @@ _origin["month1_only_newcomers"] = [
 _origin["threshold_insiders"] = _origin["Repository"].map(_thr_ins)
 _origin.to_csv(f"{OUTPUT_DIR}/rq1_threshold_origin_per_repository.csv", index=False)
 
+# PRs with a commit signal dropped because a Bot/Organization-typed account
+# outside bots.csv opened them (classify_prs.py), per repository, by creation
+# month relative to the threshold (empty threshold: repository without one).
+_auto = pd.read_csv(f"{OUTPUT_DIR}/automation_with_ai_evidence.csv")
+_auto = _auto[
+    (_auto["Drop_Reason"] == "account_type")
+    & _auto["Detection_Source"].isin(["commit-author", "commit-coauthor"])
+].copy()
+_auto["threshold"] = _auto["Repository"].map(_origin.set_index("Repository")["threshold"])
+_auto["before_threshold"] = _auto["threshold"].notna() & (
+    _auto["Created_At"].str[:7] < _auto["threshold"]
+)
+_auto_thr = (
+    _auto.groupby("Repository", sort=False)
+    .agg(
+        threshold=("threshold", "first"),
+        prs=("PR_Number", "size"),
+        prs_before_threshold=("before_threshold", "sum"),
+    )
+    .reset_index()
+    .sort_values("prs", ascending=False)
+)
+_auto_thr.to_csv(f"{OUTPUT_DIR}/automation_account_type_threshold.csv", index=False)
+print(
+    f"  automation_account_type_threshold.csv: {_auto_thr['prs'].sum()} PRs, "
+    f"{_auto_thr.loc[_auto_thr['threshold'].notna(), 'prs'].sum()} in repositories with a "
+    f"threshold, {_auto_thr['prs_before_threshold'].sum()} before it"
+)
+
 
 def _summary_origin(g: pd.DataFrame, label: str) -> dict:
     return {

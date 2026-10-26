@@ -11,7 +11,11 @@ Groups (disjoint, they add up to the collected total):
   automation                  the remaining raw PRs (bot/organization
                               accounts and the known-bots list), with the 13
                               User-typed automation accounts counted
-                              separately in automation_13_accounts
+                              separately in automation_13_accounts; the
+                              automation PRs with AI evidence
+                              (results/automation_with_ai_evidence.csv, from
+                              classify_prs.py) are also split out in
+                              automation_with_ai and automation_without_ai
 """
 
 import ast
@@ -22,6 +26,7 @@ import pandas as pd
 
 CUTOFF_MONTH = "2026-08"
 OUTPUT_FILE = "results/cutoff_counts.csv"
+AUTOMATION_AI_FILE = "results/automation_with_ai_evidence.csv"
 # the 13 User-typed automation accounts added to bots.csv
 ACCOUNTS_13 = {
     "angular-robot",
@@ -79,8 +84,12 @@ hum["month"] = hum["Created_At"].str[:7]
 
 keys_class = set(map(_key, ai["Link"])) | set(map(_key, hum["Link"]))
 rest = [
-    (m, (l or "").lower().removesuffix("[bot]")) for k, (m, l) in raw.items() if k not in keys_class
+    (m, (l or "").lower().removesuffix("[bot]"), k)
+    for k, (m, l) in raw.items()
+    if k not in keys_class
 ]
+auto_ai = pd.read_csv(AUTOMATION_AI_FILE, usecols=["Repository", "PR_Number"], dtype=str)
+keys_auto_ai = set(zip(auto_ai["Repository"].str.lower(), auto_ai["PR_Number"]))
 
 
 def _row(group, months, signal=None):
@@ -104,12 +113,21 @@ rows = [
     _row("human_ai", ai.loc[~agent, "month"], ai.loc[~agent, "signal_month"]),
     _row("control", hum.loc[~no_login, "month"]),
     _row("control_deleted_account", hum.loc[no_login, "month"]),
-    _row("automation", [m for m, _ in rest]),
-    _row("automation_13_accounts", [m for m, l in rest if l in ACCOUNTS_13]),
+    _row("automation", [m for m, _, _ in rest]),
+    _row("automation_with_ai", [m for m, _, k in rest if k in keys_auto_ai]),
+    _row("automation_without_ai", [m for m, _, k in rest if k not in keys_auto_ai]),
+    _row("automation_13_accounts", [m for m, l, _ in rest if l in ACCOUNTS_13]),
+    _row(
+        "automation_13_accounts_with_ai",
+        [m for m, l, k in rest if l in ACCOUNTS_13 and k in keys_auto_ai],
+    ),
 ]
 df = pd.DataFrame(rows)
 df.to_csv(OUTPUT_FILE, index=False)
 print(df.to_string(index=False))
+assert len(keys_auto_ai) == len(auto_ai) and keys_auto_ai <= {k for _, _, k in rest}, (
+    f"{AUTOMATION_AI_FILE} does not match the automation PRs"
+)
 summed = (
     df.set_index("group").loc[["with_ai", "control", "control_deleted_account", "automation"]].sum()
 )

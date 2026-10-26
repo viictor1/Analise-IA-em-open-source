@@ -20,7 +20,7 @@ The GraphQL listing runs from the newest to the oldest pull request and stopped 
 - 188 pull requests missing from the search index, recovered by number with all fields;
 - 323 removed pull requests that could not be loaded, 0.17% of the 13 repositories and 0.012% of the 2,628,498 pull requests collected in the 450; 270 of them are in `yt-dlp/yt-dlp` (6.0% of its pull requests), and every other repository loses at most 0.9%.
 
-The probe by number is done by `recover_by_number.py` (pipeline step 2b). It covers the numbers between the oldest and the newest collected pull request, so pull requests opened after the collection are not added. A rerun in October 2026 (`--check`, which writes nothing) found again 187 of the 188 recovered pull requests, plus 52 that GitHub did not serve in September, and none of the 323 removed ones, which GitHub now reports as not found instead of failing with an internal error. The numbers above are those of the September collection.
+The probe by number is done by `recover_by_number.py` (pipeline step 2b). It covers the numbers between the oldest and the newest collected pull request, so pull requests opened after the collection are not added. A rerun in October 2026 (`--check`, which leaves the raw JSON unchanged and writes `results/recover_by_number_check.csv`) found again 187 of the 188 recovered pull requests, plus 52 that GitHub did not serve in September, and none of the 323 removed ones, which GitHub now reports as not found instead of failing with an internal error. The numbers above are those of the September collection.
 
 ## 2. AI detection (`classify_prs.py`, `post_classification.py`)
 
@@ -30,7 +30,7 @@ The pattern lists are those of Robbes et al. (2026), with the changes in Section
 
 The account that opened a PR falls into one of three cases:
 
-- **Excluded automation.** Accounts in `bots.csv`, and accounts that GitHub types as Bot or Organization, unless one of the two exemptions below applies.
+- **Excluded automation.** Accounts whose login or display name matches `bots.csv`, even when the head branch matches `branches.csv`, and accounts that GitHub types as Bot or Organization, unless one of the two exemptions below applies.
 - **`AI_Agent`.** Accounts that match `authors.csv`, even when typed as Bot (several coding agents run as GitHub Apps). A Bot- or Organization-typed account that matches neither list is also kept as `AI_Agent` when the head branch of its PR matches `branches.csv` (e.g., `anthropic-code-agent`). Only the branch grants this exemption, because an automation account can carry label or commit evidence when it bundles someone else's AI-assisted work.
 - **`Human`.** Every other account.
 
@@ -51,34 +51,36 @@ Each PR is checked against five signals in this order, and the first match sets 
 
 ### 2.3 Matching rules
 
-- Each list is compiled into one regular-expression alternation, case-insensitive. Email patterns must match the whole address, and logins match with or without a trailing `[bot]`.
+- Each list is compiled into one regular-expression alternation, case-insensitive. Branch patterns are anchored to the start of the branch name. Author, bot and label patterns cannot be part of a larger word (`codex` matches in `codex-atlanticus` but not in `codexatlanticus`). Email patterns must match the whole address, and logins match with or without a trailing `[bot]`.
 - A **full match** (the pattern spans the whole login or email, after stripping `[bot]`) is accepted on its own, e.g., the login `claude`.
-- A **partial match** (a substring of a login or email, e.g., `codex` in `codex-atlanticus`) and any match on a display name (e.g., "Claude", also a human first name) need corroboration. The corroborating match must be (a) a full match, since the same commit or co-author line can repeat within a PR and would corroborate itself, and (b) of the same identity (same login or email), since a PR can bundle commits from several authors, as in backports and cherry-picks.
+- A **partial match** (a substring of a login or email, e.g., `codex` in `codex-atlanticus`) and any match on a display name (e.g., "Claude", also a human first name) need corroboration. The corroborating match must be (a) a full match on a login or email, since the same commit or co-author line can repeat within a PR and would corroborate itself, (b) of the same identity (same login or email), since a PR can bundle commits from several authors, as in backports and cherry-picks, and (c) of the same tool.
 - A partial match on the login of the account that opened the PR is never accepted. That account has no email, and its own commits repeat the same partial match. The PR can still be flagged by other signals, with its author counted as `Human`.
-- Branch and label signals are accepted without corroboration.
+- Branch, label and `bots.csv` matches, full or partial, are accepted without corroboration.
 
 ### 2.4 Changes to the lists of Robbes et al. (2026)
 
+`pattern_changes.py` measures the effect of each change: it classifies the PRs the change can affect with the current lists and with the current lists without that change, and counts the PRs whose group or `Detection_Source` differs (`results/pattern_changes.csv`).
+
 | Change | List | Reason | Effect |
 |---|---|---|---|
-| Add `\d+\+Copilot@users\.noreply\.github\.com` | `authors.csv` | numeric-prefixed noreply format of Copilot, found in our data | |
+| Add `\d+\+Copilot@users\.noreply\.github\.com` | `authors.csv` | numeric-prefixed noreply format of Copilot, found in our data | 15,663 PRs moved from the control to the AI dataset |
 | Put specific identifiers before the generic tokens they contain (8 patterns: the `copilot-swe-agent` login and 7 emails of `Aider`, `Claude Code`, `Cline`, `ChatGPT` and `Qwen Coder`) | `authors.csv` | in an alternation the first matching alternative wins, so `Claude` placed first captured only the prefix of `claude@anthropic.com`, which became a partial match and was rejected without corroboration | 27 PRs moved from the control to the AI dataset; 7,086 PRs of `copilot-swe-agent` changed `Detection_Source` from `branch` to `pr-author` |
-| Add `robobun` (`oven-sh/bun`) as `Claude Code` | `authors.csv` | automated account that opens PRs with code it generates; all 2,315 of its PRs with explicit AI evidence point to `Claude Code` | 2,315 PRs |
-| Add 13 automation accounts that GitHub types as User: `BrewTestBot`, `fw-bot`, `engine-flutter-autoroll`, `miss-islington`, `grafanabot`, `angular-robot` and seven `ClickHouse/ClickHouse` accounts starting with `robot-` | `bots.csv` | found among the 50 accounts with the most PRs in the control dataset, by their names and fixed-template titles (version bumps, backports, dependency rolls) | 317,437 PRs removed, 1,767 of them with AI evidence |
-| Move `deepsource-autofix` from authors to bots | `bots.csv` | the account predates the LLM-based fixes of DeepSource Autofix (2025), and most of its activity comes from the earlier deterministic engine | |
-| Remove `serena/` | `branches.csv` | 11 PRs, all from two human contributors named Serena | 11 false positives removed, no true positive lost |
+| Add `robobun` (`oven-sh/bun`) as `Claude Code` | `authors.csv` | automated account that opens PRs with code it generates; all 2,315 of its PRs with explicit AI evidence point to `Claude Code` | 9,930 PRs moved from the control to the AI dataset, 9,775 opened by `robobun` and 155 by other accounts with commits authored by `robobun`; the other 2,315 PRs of `robobun` changed `Detection_Source` to `pr-author` (`results/robobun_evidence.csv`) |
+| Add 13 automation accounts that GitHub types as User: `BrewTestBot`, `fw-bot`, `engine-flutter-autoroll`, `miss-islington`, `grafanabot`, `angular-robot` and seven `ClickHouse/ClickHouse` accounts starting with `robot-` | `bots.csv` | found among the 50 accounts with the most PRs in the control dataset (`results/pattern_changes_accounts.csv`), by their names and fixed-template titles (version bumps, backports, dependency rolls) | 317,437 PRs removed, 1,767 of them with AI evidence (`results/cutoff_counts.csv`, rows `automation_13_accounts` and `automation_13_accounts_with_ai`) |
+| Move `deepsource-autofix` from authors to bots | `bots.csv` | the account predates the LLM-based fixes of DeepSource Autofix (2025), and most of its activity comes from the earlier deterministic engine | 36 PRs removed from the AI dataset, 25 opened by the account and 11 by 4 other accounts with commits authored by it |
+| Remove `serena/` | `branches.csv` | 11 PRs, all from two human contributors named Serena | 11 PRs of 2 accounts moved from the AI dataset to the control, all of them false positives |
 | Move 13 PRs to the control dataset, without changing the rule | `data/false_positives.csv`, applied by `post_classification.py` | branch keyword collisions: 12 `codex` branches in `n8n-io/n8n` (the project's node metadata files are called "codex" files) and one `cursor` branch in `supabase/supabase` (a CSS `cursor` style) | 13 of the 11,687 PRs flagged by branch (`results/detection_per_source.csv`) |
 
 ### 2.5 Counts
 
-Before the August 2026 cut, the 2,628,498 collected PRs split into:
+Before the August 2026 cut, the 2,628,498 collected PRs split into the groups below (`results/cutoff_counts.csv`, column `collected`):
 
 - 86,024 with AI evidence (`data/ai_prs.csv`);
 - 4,527 with AI evidence but opened by excluded automation;
 - 565,962 other PRs opened by excluded automation;
 - 1,971,985 without AI evidence opened by `Human` accounts, the human control dataset (`data/human_prs.csv`). This file has the same columns as `data/ai_prs.csv`, with `AI_Tool`, `Detection_Source`, `Signal_Date` and `Signal_Date_Gap_Days` empty and `Signal_Date_Suspect` false. Its 8,902 PRs from deleted accounts have no login and are excluded from all analyses.
 
-Of the 4,527 PRs with AI evidence opened by excluded automation (`results/automation_with_ai_evidence.csv`), 1,435 come from Bot- or Organization-typed accounts outside `bots.csv` whose evidence is a commit signal (`Drop_Reason` = `account_type`), led by `n8n-cat-bot` (516), `n8n-assistant` (294) and `vs-code-engineering` (261). The API cannot tell whether such an account bundles someone else's commits (e.g., a backport) or runs an internal coding agent, so all of them are excluded. They are not newcomers, so they do not affect RQ1, and in RQ2 they could only add PRs to the AI Agent group. Of the 1,435, 1,083 are in `n8n-io/n8n` and `microsoft/vscode`, all created after the adoption threshold of these repositories, and 204 are in `electron/electron`, some created before its threshold (December 2025). Counting them as AI evidence could therefore move only the threshold of `electron/electron`, which we did not test.
+Of the 4,527 PRs with AI evidence opened by excluded automation (`results/automation_with_ai_evidence.csv`), 1,435 come from Bot- or Organization-typed accounts outside `bots.csv` whose evidence is a commit signal (`Drop_Reason` = `account_type`), led by `n8n-cat-bot` (516), `n8n-assistant` (294) and `vs-code-engineering` (261). The API cannot tell whether such an account bundles someone else's commits (e.g., a backport) or runs an internal coding agent, so all of them are excluded. They are not newcomers, so they do not affect RQ1, and in RQ2 they could only add PRs to the AI Agent group. Of the 1,435, 1,427 are in repositories with an adoption threshold, and all of them were created in or after the threshold month (`results/automation_account_type_threshold.csv`, written by `analysis.py`). The other 8 are in `warpdotdev/warp`, which has no threshold. The file has no `Signal_Date`, so this comparison uses the creation date.
 
 The counts after the cut, used in the paper, are in `results/cutoff_counts.csv` (`cutoff_counts.py`). Dated by the month of the signal date, 61,575 PRs with AI evidence precede August 2026 (`results/adoption_summary.csv`).
 

@@ -6,4 +6,7 @@ human_ai,66066,47671,47565.0
 control,1963083,1883561,
 control_deleted_account,8902,8851,
 automation,570489,532570,
+automation_with_ai,4527,2982,
+automation_without_ai,565962,529588,
 automation_13_accounts,317437,293911,
+automation_13_accounts_with_ai,1767,1189,
