@@ -28,7 +28,9 @@ Closes_GFI tells whether the PR closes an issue with a label from GFI_LABELS
 PRs opened by automation accounts (bots.csv, or accounts GitHub types as Bot
 or Organization) are dropped, unless the account resolves to AI_Agent or the
 AI evidence is a branch match: several coding agents run as GitHub Apps and
-are typed as Bot too.
+are typed as Bot too. The dropped PRs with AI evidence go to
+results/automation_with_ai_evidence.csv, with Drop_Reason "bots_list" or
+"account_type" (Bot/Organization-typed account outside bots.csv).
 
 Output columns (both CSVs):
   AI_Tool, Detection_Source, Language, Stars, Repository, PR_Number,
@@ -53,6 +55,7 @@ RAW_DIR = Path("data/raw_prs")
 PATTERNS_DIR = Path("patterns")
 OUTPUT_FILE = "data/ai_prs.csv"
 OUTPUT_FILE_HUMAN = "data/human_prs.csv"
+OUTPUT_FILE_AUTOMATION = "results/automation_with_ai_evidence.csv"
 
 DEBUG = True
 
@@ -501,12 +504,27 @@ def main():
     with (
         open(OUTPUT_FILE, "w", newline="", encoding="utf-8") as csvfile,
         open(OUTPUT_FILE_HUMAN, "w", newline="", encoding="utf-8") as csvfile_human,
+        open(OUTPUT_FILE_AUTOMATION, "w", newline="", encoding="utf-8") as csvfile_automation,
     ):
         writer = csv.writer(csvfile)
         writer.writerow(HEADER)
 
         writer_human = csv.writer(csvfile_human)
         writer_human.writerow(HEADER)
+
+        writer_automation = csv.writer(csvfile_automation)
+        writer_automation.writerow(
+            [
+                "Repository",
+                "PR_Number",
+                "Created_At",
+                "PR_Author",
+                "PR_Author_Type",
+                "AI_Tool",
+                "Detection_Source",
+                "Drop_Reason",
+            ]
+        )
 
         for fpath in files:
             data = json.loads(fpath.read_text(encoding="utf-8"))
@@ -596,6 +614,19 @@ def main():
                     ):
                         automation_drop_typename_only += 1
                         automation_drop_typename_only_by_login[pr_author_login] += 1
+
+                    writer_automation.writerow(
+                        [
+                            repo_full,
+                            pr["number"],
+                            pr.get("createdAt", ""),
+                            pr_author_login,
+                            pr_author_info.get("__typename", ""),
+                            result["ai"],
+                            result["source"],
+                            "bots_list" if t_check == "Bot" else "account_type",
+                        ]
+                    )
 
                     if (
                         total_prs_automation_dropped <= 50
