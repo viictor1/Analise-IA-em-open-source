@@ -111,7 +111,8 @@ df_time = con.execute("""
 df_time.to_csv(f"{OUTPUT_DIR}/adoption_timeline.csv", index=False)
 
 # Summary numbers quoted in the paper: repositories with AI, share of the top 2
-# and top 4 tools, share in 2026 and share opened by humans (Human AI).
+# and top 4 tools, share of the top 1 and top 10 repositories, share in 2026 and
+# share opened by humans (Human AI).
 _n_sample = len(list(Path("data/raw_prs").glob("*.json")))
 _top = df_tool["prs"].to_numpy()
 pd.DataFrame(
@@ -126,6 +127,8 @@ pd.DataFrame(
             "tools": len(df_tool),
             "pct_top2_tools": 100 * _top[:2].sum() / total,
             "pct_top4_tools": 100 * _top[:4].sum() / total,
+            "pct_top1_repo": 100 * df_rank["prs"].iloc[0] / total,
+            "pct_top10_repos": 100 * df_rank["prs"].iloc[:10].sum() / total,
             "pct_prs_2026": 100 * df_time.loc[df_time["Month"] >= "2026", "prs"].sum() / total,
             "pct_human_ai": 100 * df_time.loc[df_time["group"] == "Human", "prs"].sum() / total,
         }

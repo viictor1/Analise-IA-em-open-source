@@ -1,2 +1,2 @@
-repos_sample,repos_with_ai,pct_repos_with_ai,prs_ai_collected,prs_ai_cut,prs_ai,tools,pct_top2_tools,pct_top4_tools,pct_prs_2026,pct_human_ai
-450,394,87.55555555555556,86024,24449,61575,20,88.87697929354445,98.95736906211937,85.89849776695087,77.24725943970768
+repos_sample,repos_with_ai,pct_repos_with_ai,prs_ai_collected,prs_ai_cut,prs_ai,tools,pct_top2_tools,pct_top4_tools,pct_top1_repo,pct_top10_repos,pct_prs_2026,pct_human_ai
+450,394,87.55555555555556,86024,24449,61575,20,88.87697929354445,98.95736906211937,14.159967519285424,57.648396264717825,85.89849776695087,77.24725943970768
