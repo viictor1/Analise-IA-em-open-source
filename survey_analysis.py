@@ -14,6 +14,9 @@ Reads the three Google Forms exports and writes to results_survey/:
                                      (Mann-Whitney, Cliff's delta)
   survey_open_answers.csv            all open answers with their codes
   survey_themes.csv                  theme counts per audience and belonging answer
+  survey_codebook.csv                codebook: category, definition, inclusion and
+                                     exclusion criteria, example excerpts, counts
+                                     and participant IDs (N1.., M1..) per theme
 
 The open answers (WILLINGNESS, THEMES) were coded manually; the
 codes are fixed here, keyed by the form timestamp.
@@ -159,19 +162,147 @@ WILLINGNESS = {
     ("Newcomer_no_AI", "2026/10/16 3:29:12 AM GMT-3"): "increased",
 }
 
-# Themes of the open answers (belonging explanation, AI use and willingness),
-# multi-label:
-#   lowers_barrier   without AI the person would not have contributed, or AI made
-#                    it much easier to start (skill, time or effort)
-#   tool             AI is just a tool; the human stays responsible
-#   human_loop       depends on how it is used / on the human reviewing it
-#   slop             low-effort contributions, noise, credit seeking
-#   interaction      loss of interaction, learning or human contact
-#   opens_community  AI widens the community (users become developers)
-#   impostor_syndrome mentions impostor syndrome or lack of confidence
-#   onboarding       AI helped to understand the code and the project workflow
-#   teammate         AI as a collaborator or peer, not as a tool
-#   detachment       AI weakens the sense of ownership of one's own work
+# Codebook of the open answers (belonging explanation, AI use and willingness).
+# Coding is multi-label. Each theme has a category, a definition, inclusion and
+# exclusion criteria, the themes it is easily confused with ("close but no")
+# and example excerpts (participant ID, verbatim text after redaction), written
+# to survey_codebook.csv.
+CODEBOOK = {
+    "lowers_barrier": dict(
+        category="AI as an enabler",
+        definition="without AI the person would not have contributed, or AI made it much "
+        "easier to start (skill, time or effort)",
+        include="the person says they would not have had the skill, time or patience to "
+        "contribute without AI, or that AI lowered the effort to start",
+        exclude="AI helped to understand the code or the workflow, without saying the "
+        "contribution would not have happened (onboarding)",
+        close="onboarding; opens_community",
+        examples=[
+            ("N11", "without AI I wouldn't be technically able to do any of these things"),
+            ("N30", "I wouldn't have the time otherwise."),
+            ("M31", "the bar for contribution is lower now, but the bar for trust is higher"),
+        ],
+    ),
+    "onboarding": dict(
+        category="AI as an enabler",
+        definition="AI helped to understand the code and the project workflow",
+        include="AI was used to navigate the repository, understand the codebase, its "
+        "conventions or the contribution workflow",
+        exclude="AI only wrote or reviewed the code, with no mention of understanding the "
+        "project (tool)",
+        close="lowers_barrier; tool",
+        examples=[
+            ("N5", "it helped me understand the project, its workflow, and the codebase more quickly"),
+            ("N35", "AI was used to navigate the repo, understand its culture and conventions"),
+            ("N37", "it just made the onboarding process easier"),
+        ],
+    ),
+    "opens_community": dict(
+        category="AI as an enabler",
+        definition="AI widens the community (users become developers)",
+        include="AI lets people who could not contribute before, such as users or "
+        "beginners, join the developer community",
+        exclude="the effect is only on the respondent's own contribution (lowers_barrier)",
+        close="lowers_barrier",
+        examples=[
+            ("N9", "using AI could enhance the community by expanding the community, by "
+            "allowing the community of users to move into the community of developers"),
+            ("N38", "make open-source projects more accessible to beginners"),
+        ],
+    ),
+    "teammate": dict(
+        category="AI as an enabler",
+        definition="AI as a collaborator or peer, not as a tool",
+        include="AI is described as a collaborator, peer or member of the team",
+        exclude="AI is described as a tool under human control (tool)",
+        close="tool",
+        examples=[
+            ("N28", "AI agents are equal collaborators no different from people"),
+        ],
+    ),
+    "tool": dict(
+        category="AI as a tool",
+        definition="AI is just a tool; the human stays responsible",
+        include="AI is called a tool like any other, and the human keeps the "
+        "responsibility for the contribution",
+        exclude="the answer makes the effect of AI depend on how it is used or reviewed "
+        "(human_loop)",
+        close="human_loop; teammate",
+        examples=[
+            ("N10", "LLMs are just tools"),
+            ("N23", "AI is just a tool; what matters is quality and review, not who or what wrote the code"),
+            ("M20", "I think AI agents are just tools rather than things in our community"),
+        ],
+    ),
+    "human_loop": dict(
+        category="AI as a tool",
+        definition="depends on how it is used / on the human reviewing it",
+        include="the effect of AI depends on how it is used, on a human reviewing and "
+        "understanding the output, or on the autonomy given to the agent",
+        exclude="AI is called a neutral tool with no condition attached (tool)",
+        close="tool; slop",
+        examples=[
+            ("N16", "If it still goes through the course of a maintainer or contributor, receives "
+            "critique and is addressed properly then I believe it's healthy AI usage."),
+            ("M16", "When used properly with a Human in the loop, it's not any different from human-only PRs."),
+            ("M22", "when it's used by people who do not understand what they're doing and wouldn't "
+            "be able to do it by themselves, it's usually a net negative"),
+        ],
+    ),
+    "slop": dict(
+        category="AI as a threat to the community",
+        definition="low-effort contributions, noise, credit seeking",
+        include="low-effort or low-value AI contributions, noise, volume that overloads "
+        "review, or contributors seeking credit",
+        exclude="the concern is the loss of human contact or learning, not the quality "
+        "or volume of contributions (interaction)",
+        close="interaction; human_loop",
+        examples=[
+            ("N3", "AI enables low effort submissions which introduces noise into the system."),
+            ("N39", "A lot of low value PRs and issues are being opened"),
+            ("M18", "AI enables people who seem to just want credit / name recognition."),
+        ],
+    ),
+    "interaction": dict(
+        category="AI as a threat to the community",
+        definition="loss of interaction, learning or human contact",
+        include="AI reduces communication between people, the learning that comes from "
+        "it, or the human connection in reviews",
+        exclude="the concern is the quality or volume of AI contributions (slop) or "
+        "the respondent's ownership of their own work (detachment)",
+        close="slop; detachment",
+        examples=[
+            ("N26", "You can learn from it, but its a very different feeling than learning from "
+            "other people working on the project."),
+            ("M13", "If the day is filled with only good AI PR reviews, it can be really draining and lonely."),
+            ("M46", "It removes the processes that cause contributors to develop expertise"),
+        ],
+    ),
+    "detachment": dict(
+        category="AI as a threat to the community",
+        definition="AI weakens the sense of ownership of one's own work",
+        include="writing code with AI reduces the respondent's sense of ownership of "
+        "their own contribution",
+        exclude="the loss concerns contact with other people (interaction)",
+        close="interaction",
+        examples=[
+            ("M42", "With AI you have very little sense of ownership."),
+        ],
+    ),
+    "impostor_syndrome": dict(
+        category="Contributor confidence",
+        definition="mentions impostor syndrome or lack of confidence",
+        include="the respondent mentions impostor syndrome or a lack of confidence in "
+        "their own ability, with or without AI",
+        exclude="AI only saved time or effort, with no mention of confidence (lowers_barrier)",
+        close="lowers_barrier",
+        examples=[
+            ("N4", "I sometimes struggle with impostor syndrome"),
+            ("N35", "the assurance of correctness and validation from AI agent certainly removed "
+            "the imposter syndrome"),
+        ],
+    ),
+}
 THEMES = {
     ("Newcomer_AI", "2026/09/30 9:41:09 AM GMT-3"): ["lowers_barrier", "opens_community"],
     ("Newcomer_AI", "2026/09/30 12:11:27 PM GMT-3"): ["tool", "onboarding"],
@@ -273,6 +404,13 @@ def load():
     df["newcomer"] = df.group != "Maintainer"
     df["willingness_code"] = [WILLINGNESS.get((g, t)) for g, t in zip(df.group, df.ts)]
     df["themes"] = [";".join(THEMES.get((g, t), [])) for g, t in zip(df.group, df.ts)]
+    # Participant IDs used in the paper: N1.. for newcomers (both forms) and M1..
+    # for maintainers, valid answers only, in order of answer time.
+    df["pid"] = ""
+    when = pd.to_datetime(df.ts.str.replace(" GMT-3", ""), format="%Y/%m/%d %I:%M:%S %p")
+    for prefix, sel in [("N", df.newcomer), ("M", ~df.newcomer)]:
+        idx = when[sel & ~df.invalid].sort_values().index
+        df.loc[idx, "pid"] = [f"{prefix}{i}" for i in range(1, len(idx) + 1)]
     return df
 
 
@@ -491,6 +629,7 @@ def likert_per_belonging(df):
 
 def open_ended(df):
     cols = [
+        "pid",
         "group",
         "ts",
         "invalid",
@@ -534,6 +673,35 @@ def open_ended(df):
     cnt["total"] = cnt.sum(axis=1)
     cnt = cnt.sort_values(["audience", "total"], ascending=[True, False])
     cnt.to_csv(f"{OUT_DIR}/survey_themes.csv")
+
+    assert set(t.theme) == set(CODEBOOK), set(t.theme) ^ set(CODEBOOK)
+    text = out.set_index("pid")[["undermines_explanation", "how_used", "willingness", "noticed_ai"]]
+    coded = t.groupby("theme")["pid"].apply(set)
+    for k, c in CODEBOOK.items():
+        for pid, excerpt in c["examples"]:
+            assert pid in coded[k], (k, pid)
+            assert any(excerpt in str(v) for v in text.loc[pid]), (k, pid, excerpt)
+    n = t.groupby(["theme", "audience"]).size().unstack(fill_value=0)
+    book = pd.DataFrame(
+        [
+            {
+                "category": c["category"],
+                "theme": k,
+                "definition": c["definition"],
+                "inclusion": c["include"],
+                "exclusion": c["exclude"],
+                "close_but_no": c["close"],
+                "examples": " | ".join(f'"{e}" ({pid})' for pid, e in c["examples"]),
+                "newcomers": n.loc[k, "newcomers"],
+                "maintainers": n.loc[k, "maintainers"],
+                "participants": " ".join(
+                    sorted(coded[k], key=lambda p: (p[0] != "N", int(p[1:])))
+                ),
+            }
+            for k, c in CODEBOOK.items()
+        ]
+    )
+    book.to_csv(f"{OUT_DIR}/survey_codebook.csv", index=False)
     return cnt
 
 
