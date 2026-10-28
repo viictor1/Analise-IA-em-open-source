@@ -177,6 +177,15 @@ def collect(rows):
             f.flush()
             done[repo] = out
             time.sleep(0.3)
+
+    # Drop repositories that are no longer in the sample.
+    keep = {f"{r['owner']}/{r['project']}" for r in rows}
+    with open(OUT_CSV, newline="") as f:
+        kept = [r for r in csv.DictReader(f) if r["repo"] in keep]
+    with open(OUT_CSV, "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=FIELDS)
+        w.writeheader()
+        w.writerows(kept)
     return done
 
 

@@ -105,17 +105,14 @@ lollipopkit/flutter_server_box,Dart,8719,558,,606,562,805,1658,5.02,0,0
 imaNNeo/fl_chart,Dart,7578,1969,,799,569,1243,1966,7.36,0,0
 rrousselGit/riverpod,Dart,7386,1112,,1230,1029,2237,2574,6.43,0,0
 alibaba/flutter_boost,Dart,7192,1268,,542,374,1688,1255,7.54,102,0
-TheLastGimbus/GooglePhotosTakeoutHelper,Dart,5913,331,,136,60,264,575,6.46,598,0
 leoafarias/fvm,Dart,5523,285,,462,372,577,2121,7.57,1,0
 fzyzcjy/flutter_rust_bridge,Dart,5414,421,,1783,1296,1377,25030,4.96,6,0
 deckerst/aves,Dart,5285,230,,481,434,1518,4358,7.13,0,0
 rrousselGit/provider,Dart,5252,525,,235,179,642,459,7.92,193,0
 harmonoid/harmonoid,Dart,4745,258,,165,149,476,3551,6.12,17,0
-isar/hive,Dart,4390,449,,161,107,1167,654,7.2,813,0
 finamp-app/finamp,Dart,4271,304,,506,392,1173,5308,6.05,6,0
 gokadzev/Musify,Dart,4249,387,,348,239,427,3367,4.79,1,0
 sass/dart-sass,Dart,4220,381,,1574,1448,1239,2865,9.88,1,0
-isar/isar,Dart,4023,602,,421,252,805,1425,6.28,462,0
 bostrot/wsl2-distro-manager,Dart,4004,178,,123,118,184,1208,5.0,1,0
 pichillilorenzo/flutter_inappwebview,Dart,3775,2138,,371,174,2416,1806,8.02,221,0
 TomBursch/kitchenowl,Dart,3685,241,,438,368,633,1711,5.62,22,0
@@ -136,7 +133,6 @@ prometheus/prometheus,Go,66132,10845,,12420,9002,6562,18648,13.82,0,0
 traefik/traefik,Go,64904,6202,,6898,5614,6883,6557,11.02,1,0
 usememos/memos,Go,63178,4772,,2592,2132,3010,4810,4.78,0,0
 rclone/rclone,Go,59843,5413,,3614,2558,6226,10370,12.51,0,0
-FiloSottile/mkcert,Go,59627,3136,,184,53,358,165,8.24,767,0
 go-gitea/gitea,Go,58077,7157,,23004,19922,16038,21598,9.88,0,0
 wagoodman/dive,Go,54587,2001,,325,164,376,508,8.35,278,0
 jesseduffield/lazydocker,Go,52870,1686,,364,195,418,892,7.34,153,0
@@ -184,7 +180,6 @@ vercel/next.js,JavaScript,142369,32469,,40298,28677,25404,35737,9.95,0,0
 nodejs/node,JavaScript,122014,37372,,42647,13640,20889,48554,11.81,0,0
 mrdoob/three.js,JavaScript,115662,36557,,20551,16181,13801,47969,16.49,0,0
 axios/axios,JavaScript,109205,11867,,2803,1508,5061,2192,12.09,3,0
-react/create-react-app,JavaScript,103255,26900,,4432,1949,8435,2819,10.17,581,0
 mui/material-ui,JavaScript,99058,32523,,27212,22315,20528,28687,12.09,0,0
 louislam/uptime-kuma,JavaScript,91570,8440,,2794,1867,4975,7341,5.21,0,0
 sveltejs/svelte,JavaScript,88136,5816,,8564,6887,9212,11402,9.83,0,0
@@ -214,14 +209,11 @@ topjohnwu/Magisk,Kotlin,62853,18638,,3091,1744,6641,7774,10.03,1,0
 JetBrains/kotlin,Kotlin,53433,6420,,8226,4174,0,143878,14.6,0,0
 lysine-dev/okhttp,Kotlin,47061,9296,,5243,4191,4312,6456,14.16,2,0
 shadowsocks/shadowsocks-android,Kotlin,36799,11440,,412,258,2526,3741,13.76,41,0
-RikkaApps/Shizuku,Kotlin,30337,3138,,207,51,1147,1091,9.32,458,0
 square/leakcanary,Kotlin,29994,3993,,1208,1039,1687,2831,11.39,1,0
 signalapp/Signal-Android,Kotlin,29365,6892,,3097,239,11774,20747,14.76,1,0
 pppscn/SmsForwarder,Kotlin,28040,3423,,67,45,692,874,5.6,0,0
 JetBrains/compose-multiplatform,Kotlin,19374,1428,,1953,1681,3532,2821,6.03,0,0
-square/picasso,Kotlin,18789,3936,,920,684,1575,1719,13.35,682,0
 facebook/fresco,Kotlin,17158,3737,,484,83,2335,5072,11.55,1,0
-mamoe/mirai,Kotlin,14812,2485,,607,498,1992,8515,7.12,726,0
 ktorio/ktor,Kotlin,14530,1309,,4317,3302,1546,7000,11.13,1,0
 thunderbird/thunderbird-android,Kotlin,14012,2814,,5357,4310,6150,21054,15.62,1,0
 Kotlin/kotlinx.coroutines,Kotlin,13814,1950,,2184,1669,2552,3227,10.24,1,0
@@ -231,7 +223,6 @@ YiiGuxing/TranslationPlugin,Kotlin,11851,809,,281,247,5956,4063,10.3,2,0
 ankidroid/Anki-Android,Kotlin,11822,2918,,12527,10460,9369,23711,13.66,0,0
 mikepenz/MaterialDrawer,Kotlin,11644,2015,,312,259,2541,2599,11.63,4,0
 yairm210/Unciv,Kotlin,11287,1931,,10624,9345,4894,13555,8.83,2,0
-Shabinder/SpotiFlyer,Kotlin,11272,821,,265,59,3018,606,6.18,713,0
 JakeWharton/timber,Kotlin,10849,995,,389,283,267,600,13.17,1,0
 AppIntro/AppIntro,Kotlin,10568,1762,,668,556,636,1136,11.3,0,0
 JetBrains/ideavim,Kotlin,10267,812,,1640,1194,0,10410,15.53,0,0
@@ -252,7 +243,6 @@ sparkle-project/Sparkle,Objective-C,9727,1140,,1259,1113,1426,4378,17.11,0,0
 Sequel-Ace/Sequel-Ace,Objective-C,7537,336,,1237,1138,1334,10458,6.27,2,0
 ivpusic/react-native-image-crop-picker,Objective-C,6351,1610,,485,215,1729,534,10.34,241,0
 kif-framework/KIF,Objective-C,6248,919,,701,503,648,1501,15.3,37,0
-HexFiend/HexFiend,Objective-C,5892,452,,178,146,354,1492,14.79,447,0
 ResearchKit/ResearchKit,Objective-C,5747,1177,,772,591,838,3524,11.53,66,0
 google/EarlGrey,Objective-C,5699,737,,1733,1292,460,784,10.62,4,0
 TimOliver/TOCropViewController,Objective-C,4949,1022,,234,189,416,1048,11.29,53,0
@@ -288,7 +278,6 @@ Seldaek/monolog,PHP,21405,1910,,1199,789,868,2915,15.59,0,0
 sebastianbergmann/phpunit,PHP,20055,2212,,2658,1327,4148,26167,16.74,0,0
 fruitcake/laravel-debugbar,PHP,19283,1612,,957,772,1113,1559,13.04,13,0
 BookStackApp/BookStack,PHP,19050,2422,,1071,731,5009,5592,11.06,0,0
-bcit-ci/CodeIgniter,PHP,18158,7534,,2959,1302,3321,10353,15.09,796,0
 nikic/PHP-Parser,PHP,17471,1132,,485,260,674,1803,15.42,5,0
 koel/koel,PHP,17255,2108,,1465,1115,1164,3919,10.79,0,0
 briannesbitt/Carbon,PHP,16598,1283,,1935,1523,1424,4836,14.03,4,0
@@ -304,7 +293,6 @@ huggingface/transformers,Python,166391,34630,,28687,20548,19493,24034,7.89,0,0
 ytdl-org/youtube-dl,Python,141277,10658,,5019,1646,26832,18977,15.89,212,0
 pytorch/pytorch,Python,103110,29888,,136025,6618,61063,110881,10.1,0,0
 fastapi/fastapi,Python,102466,9913,,6342,3580,3552,7713,7.78,1,0
-nvbn/thefuck,Python,97860,3959,,777,482,792,1651,11.45,792,0
 3b1b/manim,Python,94081,7727,,1002,703,1238,6478,11.5,10,0
 sherlock-project/sherlock,Python,92134,10863,,1657,748,1190,2931,7.74,0,0
 django/django,Python,91143,34882,,21872,10741,0,34946,14.39,0,0
@@ -419,7 +407,6 @@ stephencelis/SQLite.swift,Swift,10189,1610,,385,235,974,1425,11.96,6,0
 Quick/Quick,Swift,9827,895,,775,635,538,2197,12.29,124,0
 SwiftGen/SwiftGen,Swift,9549,765,,482,374,621,2734,11.18,156,0
 TelegramMessenger/Telegram-iOS,Swift,8982,2917,,205,0,1941,30744,7.85,5,0
-vuejs/vue,TypeScript,212822,33725,,2656,1136,10035,3593,13.14,709,0
 n8n-io/n8n,TypeScript,205385,60787,,28430,21765,10367,24542,7.24,0,0
 microsoft/vscode,TypeScript,192699,42786,,66550,53801,253916,165614,11.04,0,0
 excalidraw/excalidraw,TypeScript,132450,15373,,6554,3976,4966,4089,6.71,0,0

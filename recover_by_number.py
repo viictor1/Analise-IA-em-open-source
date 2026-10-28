@@ -8,7 +8,8 @@ number between the oldest and the newest collected PR is probed by number:
   fields of fetch_prs.py, appended to "prs" with recovered_via = "number" and
   listed in "recovered_by_number" ("recover_failed" if the fetch fails);
 - a number that fails with an INTERNAL error is a removed PR that cannot be
-  loaded, and is listed in "unloadable_numbers";
+  loaded, and is listed in "unloadable_numbers" (numbers listed by earlier
+  runs are kept unless the PR is now in the JSON);
 - a number that is not a PR (an issue) is ignored.
 
 Numbers above the newest collected PR are not probed, so PRs opened after the
@@ -169,7 +170,11 @@ def process(path, check: bool) -> dict:
             failed.append(n)
     d["recovered_by_number"] = sorted(set(d.get("recovered_by_number", [])) | set(recovered))
     d["recover_failed"] = failed
-    d["unloadable_numbers"] = internal
+    # A removed PR stays recorded after GitHub stops failing on it.
+    numbers = {p["number"] for p in d["prs"]}
+    d["unloadable_numbers"] = sorted(
+        (set(d.get("unloadable_numbers", [])) | set(internal)) - numbers
+    )
     path.write_text(json.dumps(d, indent=None), encoding="utf-8")
     return summary
 
