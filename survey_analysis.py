@@ -113,7 +113,7 @@ PROJECTS_REDACTED = {
     ("Newcomer_AI", "2026/10/01 8:20:34 AM GMT-3"): "github-readme-stats",
 }
 
-# Open answers that name the respondent's employer. The text to replace would
+# Open answers that name the respondent's employer or own project. The text to replace would
 # identify the respondent, so the list stays in a local file that is not
 # distributed (survey_redactions.json: group, ts, column, text, replacement).
 REDACTIONS_FILE = "survey_redactions.json"

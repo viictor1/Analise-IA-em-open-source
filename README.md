@@ -38,12 +38,12 @@ Run the scripts from the repository root, in this order.
 | 2b | `recover_by_number.py` | In the 13 repositories collected through the search API, probes every PR number, fetches the PRs missing from the search index and records the removed PRs that cannot be loaded; `--check` repeats the probe without changing the JSON | `data/raw_prs/`, `results/recover_by_number_check.csv` (`--check`) |
 | 3 | `collection_gaps.py` | Counts the removed PRs that could not be collected in the 13 repositories where they broke the GraphQL listing | `results/collection_gaps.csv` |
 | 4 | `classify_prs.py` | Detects AI evidence in each PR with the heuristics of Robbes et al. and splits the PRs into AI and human control | `data/ai_prs.csv`, `data/human_prs.csv`, `results/automation_with_ai_evidence.csv` |
-| 5 | `post_classification.py` | Moves the confirmed false positives to the human control, fixes implausible signal dates and counts AI PRs per detection signal | `results/detection_per_source.csv` |
+| 5 | `post_classification.py` | Moves the confirmed false positives to the human control, fixes implausible signal dates and counts AI PRs per detection signal | `data/ai_prs.csv`, `data/human_prs.csv`, `results/detection_per_source.csv` |
 | 5b | `pattern_changes.py` | Measures the effect of each change to the pattern lists of Robbes et al. by classifying the affected PRs with and without it | `results/pattern_changes.csv`, `results/pattern_changes_accounts.csv` |
 | 6 | `cutoff_counts.py` | Counts the collected PRs per group (AI, human control, automation) before and after the August 2026 cutoff | `results/cutoff_counts.csv` |
 | 7 | `repo_stats.py data/selected_repos.csv` | Collects descriptive metrics of the 450 repositories (stars, forks, PRs, age) and builds the sample table | `results/repo_metrics.csv`, `results/tables.tex` |
 | 8 | `adoption.py` | Describes AI adoption over time and per tool, language and repository | `results/adoption_*.csv`, `results/robobun_evidence.csv`, `figures/adoption_timeline.pdf` |
-| 9 | `analysis.py` | Dates each repository's adoption threshold, identifies newcomers and runs RQ1 (newcomer flow and retention) and RQ2 (acceptance, resolution time, good first issues), pooled and per breakdown | `results/rq1_*.csv`, `results/rq2_*.csv`, `results/automation_account_type_threshold.csv` |
+| 9 | `analysis.py` | Dates each repository's adoption threshold, identifies newcomers and runs RQ1 (newcomer flow and retention) and RQ2 (acceptance, resolution time, good first issues), pooled and per breakdown | `results/rq1_*.csv`, `results/rq2_*.csv` (except `rq2_breakdowns_summary.csv`), `results/automation_account_type_threshold.csv`, `results/composition_groups.csv`, `results/rq_shapiro.csv` |
 | 10 | `did_bjs.py` | Estimates the effect of adoption with a staggered difference-in-differences (Borusyak, Jaravel and Spiess), with placebo and breakdowns | `results/did_*.csv`, `figures/did_bjs_*.pdf` |
 | 11 | `threshold_sensitivity.py` | Tests the sensitivity of the 180-day rule that dates commit signals | `results/gap_distribution.csv`, `results/threshold_sensitivity.csv` |
 | 12 | `survey_population.py` | Computes the survey population and sample sizes | `results/survey_population.csv` |
@@ -55,7 +55,7 @@ Run the scripts from the repository root, in this order.
 | 13 | `plot_no_ai.py` | Plots the newcomer flow in the repositories without any AI evidence (reference for RQ1) | `figures/newcomer_entry_no_ai*.pdf` |
 | 13 | `plot_breakdowns.py` | Plots the RQ1 breakdowns by language, stars and community size | `figures/breakdowns_*.pdf` |
 | 13 | `plot_rq2.py` | Plots acceptance, resolution time and who closes good first issues per group (RQ2) | `figures/rq2_*.pdf` |
-| 13 | `plot_breakdowns_rq2.py` | Plots the RQ2 breakdowns by language, stars and community size | `figures/rq2_breakdowns_*.pdf` |
+| 13 | `plot_breakdowns_rq2.py` | Plots the RQ2 breakdowns by language, stars and community size and summarizes their direction | `figures/rq2_breakdowns_*.pdf`, `results/rq2_breakdowns_summary.csv` |
 
 Steps 1, 2, 2b and 7 call the GitHub API and need tokens in a `.env` file (see
 `.env.example`). The collection takes days and the classification a few
@@ -88,7 +88,7 @@ Windows are `window1` / `before` (before the adoption threshold), `window2` /
 
 - The raw PR data (`data/raw_prs/`, about 8 GB of JSON) and the classified PR
   tables (`data/ai_prs.csv`, `data/human_prs.csv`) are not versioned because
-  of their size. Steps 2 and 4 rebuild them, although GitHub's current state
+  of their size. Steps 2, 2b, 4 and 5 rebuild them, although GitHub's current state
   will differ from the collection (September 2026).
 - Outputs that list GitHub logins (`results/newcomers_prs.csv`,
   `results/branches_serena.csv`) are not versioned.
