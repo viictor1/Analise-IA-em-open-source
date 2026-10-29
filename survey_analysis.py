@@ -709,6 +709,9 @@ def open_ended(df):
             assert pid in coded[k], (k, pid)
             assert excerpt in str(text.loc[pid]), (k, pid, excerpt)
     n = t.groupby(["theme", "audience"]).size().unstack(fill_value=0)
+    # Respondents who explained their belonging answer, the denominators of the counts.
+    e = df[~df.invalid & df.undermines_explanation.notna()]
+    explained = {"newcomers": int(e.newcomer.sum()), "maintainers": int((~e.newcomer).sum())}
     book = pd.DataFrame(
         [
             {
@@ -721,6 +724,8 @@ def open_ended(df):
                 "examples": " | ".join(f'"{e}" ({pid})' for pid, e in c["examples"]),
                 "newcomers": n.loc[k, "newcomers"],
                 "maintainers": n.loc[k, "maintainers"],
+                "newcomers_explained": explained["newcomers"],
+                "maintainers_explained": explained["maintainers"],
                 "participants": " ".join(
                     sorted(coded[k], key=lambda p: (p[0] != "N", int(p[1:])))
                 ),
