@@ -162,11 +162,12 @@ WILLINGNESS = {
     ("Newcomer_no_AI", "2026/10/16 3:29:12 AM GMT-3"): "increased",
 }
 
-# Codebook of the open answers (belonging explanation, AI use and willingness).
-# Coding is multi-label. Each theme has a category, a definition, inclusion and
-# exclusion criteria, the themes it is easily confused with ("close but no")
-# and example excerpts (participant ID, verbatim text after redaction), written
-# to survey_codebook.csv.
+# Codebook of the belonging explanation, the open question that both newcomers
+# and maintainers answered; the other open questions are not coded. Coding is
+# multi-label. Each theme has a category, a definition, inclusion and exclusion
+# criteria, the themes it is easily confused with ("close but no") and example
+# excerpts from the belonging explanation (participant ID, verbatim text after
+# redaction), written to survey_codebook.csv.
 CODEBOOK = {
     "lowers_barrier": dict(
         category="AI as an enabler",
@@ -178,23 +179,23 @@ CODEBOOK = {
         "contribution would not have happened (onboarding)",
         close="onboarding; opens_community",
         examples=[
-            ("N11", "without AI I wouldn't be technically able to do any of these things"),
-            ("N30", "I wouldn't have the time otherwise."),
+            ("N9", "to give me starter code in languages/frameworks I am unfamiliar with"),
             ("M31", "the bar for contribution is lower now, but the bar for trust is higher"),
+            ("M37", "While AI can improve participation by lowering the barrier"),
         ],
     ),
     "onboarding": dict(
         category="AI as an enabler",
         definition="AI helped to understand the code and the project workflow",
-        include="AI was used to navigate the repository, understand the codebase, its "
+        include="AI is said to help navigate the repository, understand the codebase, its "
         "conventions or the contribution workflow",
         exclude="AI only wrote or reviewed the code, with no mention of understanding the "
         "project (tool)",
         close="lowers_barrier; tool",
         examples=[
-            ("N5", "it helped me understand the project, its workflow, and the codebase more quickly"),
-            ("N35", "AI was used to navigate the repo, understand its culture and conventions"),
-            ("N37", "it just made the onboarding process easier"),
+            ("N5", "helps you understand the project, learn its workflow"),
+            ("N25", "especially when learning unfamiliar codebases"),
+            ("N35", "help easily navigate new repos"),
         ],
     ),
     "opens_community": dict(
@@ -208,6 +209,8 @@ CODEBOOK = {
             ("N9", "using AI could enhance the community by expanding the community, by "
             "allowing the community of users to move into the community of developers"),
             ("N38", "make open-source projects more accessible to beginners"),
+            ("N40", "It only showcases others trying to contribute even if they are not able "
+            "to technically do it themselves."),
         ],
     ),
     "teammate": dict(
@@ -230,7 +233,8 @@ CODEBOOK = {
         close="human_loop; teammate",
         examples=[
             ("N10", "LLMs are just tools"),
-            ("N23", "AI is just a tool; what matters is quality and review, not who or what wrote the code"),
+            ("N23", "AI is just a tool; what matters is quality and review, not who or what "
+            "wrote the code"),
             ("M20", "I think AI agents are just tools rather than things in our community"),
         ],
     ),
@@ -244,7 +248,8 @@ CODEBOOK = {
         examples=[
             ("N16", "If it still goes through the course of a maintainer or contributor, receives "
             "critique and is addressed properly then I believe it's healthy AI usage."),
-            ("M16", "When used properly with a Human in the loop, it's not any different from human-only PRs."),
+            ("M16", "When used properly with a Human in the loop, it's not any different from "
+            "human-only PRs."),
             ("M22", "when it's used by people who do not understand what they're doing and wouldn't "
             "be able to do it by themselves, it's usually a net negative"),
         ],
@@ -254,39 +259,56 @@ CODEBOOK = {
         definition="low-effort contributions, noise, credit seeking",
         include="low-effort or low-value AI contributions, noise, volume that overloads "
         "review, or contributors seeking credit",
-        exclude="the concern is the loss of human contact or learning, not the quality "
-        "or volume of contributions (interaction)",
-        close="interaction; human_loop",
+        exclude="the concern is the loss of human contact or of learning, not the quality "
+        "or volume of contributions (human_connection, less_learning)",
+        close="human_connection; human_loop",
         examples=[
             ("N3", "AI enables low effort submissions which introduces noise into the system."),
-            ("N39", "A lot of low value PRs and issues are being opened"),
+            ("N41", "we dont even know if this is slop or not, it will take long time to review"),
             ("M18", "AI enables people who seem to just want credit / name recognition."),
         ],
     ),
-    "interaction": dict(
+    "human_connection": dict(
         category="AI as a threat to the community",
-        definition="loss of interaction, learning or human contact",
-        include="AI reduces communication between people, the learning that comes from "
-        "it, or the human connection in reviews",
-        exclude="the concern is the quality or volume of AI contributions (slop) or "
-        "the respondent's ownership of their own work (detachment)",
-        close="slop; detachment",
+        definition="loss of human contact, communication or connection",
+        include="AI reduces communication between people, replaces human conversation, or "
+        "removes the connection to the person behind a contribution or a review",
+        exclude="the concern is learning less (less_learning), the quality or volume of AI "
+        "contributions (slop) or the respondent's own attachment to the project (detachment)",
+        close="less_learning; slop; detachment",
         examples=[
+            ("M13", "If the day is filled with only good AI PR reviews, it can be really "
+            "draining and lonely."),
+            ("M38", "missing that connection to the person behind it"),
+            ("N35", "members end up feeling isolated"),
+        ],
+    ),
+    "less_learning": dict(
+        category="AI as a threat to the community",
+        definition="AI reduces learning and the understanding of the project",
+        include="AI makes people understand the project less, or removes the learning that "
+        "comes from doing the work or from other contributors",
+        exclude="the loss concerns human contact, not learning (human_connection)",
+        close="human_connection; onboarding",
+        examples=[
+            ("N21", "I feel like my understanding of the project would be better if i "
+            "contributed much slower without AI use."),
             ("N26", "You can learn from it, but its a very different feeling than learning from "
             "other people working on the project."),
-            ("M13", "If the day is filled with only good AI PR reviews, it can be really draining and lonely."),
             ("M46", "It removes the processes that cause contributors to develop expertise"),
         ],
     ),
     "detachment": dict(
         category="AI as a threat to the community",
-        definition="AI weakens the sense of ownership of one's own work",
-        include="writing code with AI reduces the respondent's sense of ownership of "
-        "their own contribution",
-        exclude="the loss concerns contact with other people (interaction)",
-        close="interaction",
+        definition="AI weakens the respondent's attachment to the project or to their own work",
+        include="writing code with AI reduces the respondent's sense of ownership of their "
+        "own contribution, or AI contributions reduce their engagement with the project",
+        exclude="the loss concerns contact with other people (human_connection)",
+        close="human_connection",
         examples=[
             ("M42", "With AI you have very little sense of ownership."),
+            ("M19", "my engagement in the project naturally decreases with the increase in AI "
+            "contributions"),
         ],
     ),
     "impostor_syndrome": dict(
@@ -298,80 +320,84 @@ CODEBOOK = {
         close="lowers_barrier",
         examples=[
             ("N4", "I sometimes struggle with impostor syndrome"),
-            ("N35", "the assurance of correctness and validation from AI agent certainly removed "
-            "the imposter syndrome"),
+        ],
+    ),
+    "off_topic": dict(
+        category="Not related to belonging",
+        definition="the explanation does not address belonging or the community",
+        include="the answer talks only about productivity, the quality of AI output or the "
+        "respondent's own contribution, with no link to the community or to belonging",
+        exclude="a short answer that justifies Yes/No implicitly, such as calling AI just a "
+        "tool (tool)",
+        close="tool",
+        examples=[
+            ("N8", "I currently believe AI agents are best to way fasttrack the development of "
+            "software"),
+            ("N30", "All of my contributions are AI-generated."),
         ],
     ),
 }
 THEMES = {
-    ("Newcomer_AI", "2026/09/30 9:41:09 AM GMT-3"): ["lowers_barrier", "opens_community"],
-    ("Newcomer_AI", "2026/09/30 12:11:27 PM GMT-3"): ["tool", "onboarding"],
+    ("Newcomer_AI", "2026/09/30 9:41:09 AM GMT-3"): ["lowers_barrier"],
+    ("Newcomer_AI", "2026/09/30 12:11:27 PM GMT-3"): ["tool"],
     ("Newcomer_AI", "2026/09/30 12:25:40 PM GMT-3"): ["slop"],
     ("Newcomer_AI", "2026/10/01 4:18:04 AM GMT-3"): ["impostor_syndrome"],
     ("Newcomer_AI", "2026/10/01 8:20:34 AM GMT-3"): ["onboarding"],
-    ("Newcomer_AI", "2026/10/01 10:40:06 AM GMT-3"): ["tool"],
-    ("Newcomer_AI", "2026/10/01 12:34:27 PM GMT-3"): [
-        "lowers_barrier",
-        "opens_community",
-        "human_loop",
-        "interaction",
-    ],
+    ("Newcomer_AI", "2026/10/01 10:40:06 AM GMT-3"): ["off_topic"],
+    ("Newcomer_AI", "2026/10/01 12:34:27 PM GMT-3"): ["lowers_barrier", "opens_community", "human_loop", "human_connection"],
     ("Newcomer_AI", "2026/10/02 2:32:04 AM GMT-3"): ["tool"],
-    ("Newcomer_AI", "2026/10/03 11:44:50 PM GMT-3"): ["lowers_barrier", "tool"],
-    ("Newcomer_AI", "2026/10/05 11:47:42 AM GMT-3"): ["tool"],
-    ("Newcomer_AI", "2026/10/05 3:33:04 PM GMT-3"): ["lowers_barrier"],
+    ("Newcomer_AI", "2026/10/03 11:44:50 PM GMT-3"): ["tool"],
     ("Newcomer_AI", "2026/10/06 1:21:05 PM GMT-3"): ["slop"],
-    ("Newcomer_AI", "2026/10/06 3:45:55 PM GMT-3"): ["human_loop", "lowers_barrier", "onboarding"],
+    ("Newcomer_AI", "2026/10/06 3:45:55 PM GMT-3"): ["human_loop"],
     ("Newcomer_AI", "2026/10/07 12:13:53 PM GMT-3"): ["tool"],
-    ("Newcomer_AI", "2026/10/07 8:01:20 PM GMT-3"): ["interaction"],
-    ("Newcomer_AI", "2026/10/13 6:40:55 PM GMT-3"): ["tool", "onboarding"],
+    ("Newcomer_AI", "2026/10/07 8:01:20 PM GMT-3"): ["less_learning"],
+    ("Newcomer_AI", "2026/10/13 6:40:55 PM GMT-3"): ["tool"],
     ("Newcomer_AI", "2026/10/14 1:04:38 PM GMT-3"): ["tool"],
     ("Newcomer_AI", "2026/10/14 2:57:23 PM GMT-3"): ["human_loop", "onboarding"],
     ("Newcomer_AI", "2026/10/14 4:58:28 PM GMT-3"): ["teammate"],
-    ("Newcomer_AI", "2026/10/15 1:24:57 AM GMT-3"): ["lowers_barrier"],
-    ("Newcomer_AI", "2026/10/15 5:24:41 AM GMT-3"): ["lowers_barrier", "onboarding"],
+    ("Newcomer_AI", "2026/10/15 1:24:57 AM GMT-3"): ["off_topic"],
+    ("Newcomer_AI", "2026/10/15 5:24:41 AM GMT-3"): ["off_topic"],
     ("Newcomer_AI", "2026/10/15 9:58:08 AM GMT-3"): ["tool", "human_loop"],
-    ("Newcomer_AI", "2026/10/15 12:23:55 PM GMT-3"): ["tool"],
-    ("Newcomer_AI", "2026/10/21 6:30:17 AM GMT-3"): ["human_loop", "lowers_barrier"],
-    ("Newcomer_AI", "2026/10/21 10:11:26 AM GMT-3"): ["human_loop"],
-    ("Newcomer_no_AI", "2026/10/01 10:36:35 AM GMT-3"): ["interaction"],
-    ("Newcomer_no_AI", "2026/10/07 4:48:06 AM GMT-3"): ["tool", "slop"],
+    ("Newcomer_AI", "2026/10/15 12:23:55 PM GMT-3"): ["off_topic"],
+    ("Newcomer_AI", "2026/10/21 6:30:17 AM GMT-3"): ["human_loop", "opens_community"],
+    ("Newcomer_AI", "2026/10/21 10:11:26 AM GMT-3"): ["human_loop", "slop"],
+    ("Newcomer_no_AI", "2026/10/01 10:36:35 AM GMT-3"): ["less_learning"],
+    ("Newcomer_no_AI", "2026/10/07 4:48:06 AM GMT-3"): ["tool"],
     ("Newcomer_no_AI", "2026/10/07 12:58:52 PM GMT-3"): ["human_loop", "slop"],
-    ("Newcomer_no_AI", "2026/10/12 6:11:41 AM GMT-3"): ["human_loop"],
-    ("Newcomer_no_AI", "2026/10/14 3:45:47 PM GMT-3"): ["interaction", "human_loop", "slop"],
-    ("Newcomer_no_AI", "2026/10/14 4:44:37 PM GMT-3"): ["tool", "human_loop", "onboarding"],
+    ("Newcomer_no_AI", "2026/10/12 6:11:41 AM GMT-3"): ["off_topic"],
+    ("Newcomer_no_AI", "2026/10/14 3:45:47 PM GMT-3"): ["human_connection", "less_learning"],
+    ("Newcomer_no_AI", "2026/10/14 4:44:37 PM GMT-3"): ["tool", "human_loop"],
     ("Newcomer_no_AI", "2026/10/15 12:13:12 PM GMT-3"): ["tool"],
-    ("Newcomer_no_AI", "2026/10/15 12:14:09 PM GMT-3"): ["interaction", "onboarding", "impostor_syndrome"],
-    ("Newcomer_no_AI", "2026/10/15 4:58:27 PM GMT-3"): ["human_loop", "slop", "onboarding"],
-    ("Newcomer_no_AI", "2026/10/16 3:29:12 AM GMT-3"): ["tool", "opens_community", "human_loop", "onboarding"],
-    ("Newcomer_no_AI", "2026/10/19 5:05:19 PM GMT-3"): ["slop"],
+    ("Newcomer_no_AI", "2026/10/15 12:14:09 PM GMT-3"): ["human_connection", "onboarding"],
+    ("Newcomer_no_AI", "2026/10/15 4:58:27 PM GMT-3"): ["human_loop", "slop"],
+    ("Newcomer_no_AI", "2026/10/16 3:29:12 AM GMT-3"): ["opens_community", "human_loop"],
     ("Maintainer", "2026/09/30 10:29:04 AM GMT-3"): ["tool"],
     ("Maintainer", "2026/09/30 11:04:19 AM GMT-3"): ["human_loop"],
-    ("Maintainer", "2026/09/30 11:32:43 AM GMT-3"): ["interaction"],
-    ("Maintainer", "2026/09/30 12:12:38 PM GMT-3"): ["interaction"],
+    ("Maintainer", "2026/09/30 11:32:43 AM GMT-3"): ["human_connection"],
+    ("Maintainer", "2026/09/30 12:12:38 PM GMT-3"): ["human_connection", "less_learning"],
     ("Maintainer", "2026/09/30 4:08:37 PM GMT-3"): ["tool"],
-    ("Maintainer", "2026/10/01 8:00:32 PM GMT-3"): ["slop", "interaction"],
-    ("Maintainer", "2026/10/05 10:51:20 AM GMT-3"): ["interaction"],
+    ("Maintainer", "2026/10/01 8:00:32 PM GMT-3"): ["slop", "human_connection"],
+    ("Maintainer", "2026/10/05 10:51:20 AM GMT-3"): ["human_connection"],
     ("Maintainer", "2026/10/05 2:27:04 PM GMT-3"): ["slop"],
     ("Maintainer", "2026/10/05 4:51:24 PM GMT-3"): ["human_loop"],
     ("Maintainer", "2026/10/06 9:57:28 AM GMT-3"): ["slop"],
-    ("Maintainer", "2026/10/06 10:52:12 AM GMT-3"): ["interaction"],
+    ("Maintainer", "2026/10/06 10:52:12 AM GMT-3"): ["detachment"],
     ("Maintainer", "2026/10/06 11:11:59 AM GMT-3"): ["tool"],
     ("Maintainer", "2026/10/07 8:36:53 AM GMT-3"): ["human_loop"],
     ("Maintainer", "2026/10/09 8:58:51 AM GMT-3"): ["tool", "human_loop"],
     ("Maintainer", "2026/10/12 1:20:37 PM GMT-3"): ["slop"],
-    ("Maintainer", "2026/10/14 9:00:36 AM GMT-3"): ["interaction"],
+    ("Maintainer", "2026/10/14 9:00:36 AM GMT-3"): ["human_connection"],
     ("Maintainer", "2026/10/14 11:33:17 AM GMT-3"): ["tool"],
     ("Maintainer", "2026/10/14 11:50:40 AM GMT-3"): ["slop"],
     ("Maintainer", "2026/10/14 12:06:00 PM GMT-3"): ["lowers_barrier", "human_loop"],
-    ("Maintainer", "2026/10/15 9:51:13 AM GMT-3"): ["interaction", "human_loop"],
-    ("Maintainer", "2026/10/15 11:09:28 AM GMT-3"): ["slop", "interaction", "lowers_barrier"],
-    ("Maintainer", "2026/10/15 11:18:01 AM GMT-3"): ["interaction"],
-    ("Maintainer", "2026/10/15 11:48:26 AM GMT-3"): ["slop", "interaction"],
+    ("Maintainer", "2026/10/15 9:51:13 AM GMT-3"): ["human_connection", "human_loop"],
+    ("Maintainer", "2026/10/15 11:09:28 AM GMT-3"): ["slop", "human_connection", "lowers_barrier"],
+    ("Maintainer", "2026/10/15 11:18:01 AM GMT-3"): ["human_connection"],
+    ("Maintainer", "2026/10/15 11:48:26 AM GMT-3"): ["slop", "human_connection"],
     ("Maintainer", "2026/10/15 12:16:12 PM GMT-3"): ["slop"],
     ("Maintainer", "2026/10/15 1:02:04 PM GMT-3"): ["detachment"],
     ("Maintainer", "2026/10/15 10:37:42 PM GMT-3"): ["tool"],
-    ("Maintainer", "2026/10/16 9:44:49 AM GMT-3"): ["interaction"],
+    ("Maintainer", "2026/10/16 9:44:49 AM GMT-3"): ["less_learning", "human_connection"],
 }
 
 # Maintainers who answer No (AI does not undermine belonging) but explain it
@@ -675,12 +701,13 @@ def open_ended(df):
     cnt.to_csv(f"{OUT_DIR}/survey_themes.csv")
 
     assert set(t.theme) == set(CODEBOOK), set(t.theme) ^ set(CODEBOOK)
-    text = out.set_index("pid")[["undermines_explanation", "how_used", "willingness", "noticed_ai"]]
+    assert t.undermines_explanation.notna().all(), "themes on an answer without a belonging explanation"
+    text = out.set_index("pid")["undermines_explanation"]
     coded = t.groupby("theme")["pid"].apply(set)
     for k, c in CODEBOOK.items():
         for pid, excerpt in c["examples"]:
             assert pid in coded[k], (k, pid)
-            assert any(excerpt in str(v) for v in text.loc[pid]), (k, pid, excerpt)
+            assert excerpt in str(text.loc[pid]), (k, pid, excerpt)
     n = t.groupby(["theme", "audience"]).size().unstack(fill_value=0)
     book = pd.DataFrame(
         [
